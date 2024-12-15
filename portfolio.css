@@ -1,4 +1,3 @@
-
 /* ----- POPPINS FONT Link ----- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -149,6 +148,19 @@ nav{
     border-radius: 50%;
 }
 
+/* Navigation Styles */
+.nav-button .btn {
+    background: var(--first-color);
+    color: var(--color-white);
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.nav-button .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
 /* ----- WRAPPER DESIGN ----- */
 .wrapper{
@@ -224,6 +236,72 @@ nav{
 }
 .icon:hover{
     color: var(--first-color);
+}
+
+/* Featured Section Styles */
+.featured-text-card span {
+    background: linear-gradient(to right, var(--first-color), var(--second-color));
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.featured-name {
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(to right, var(--first-color), var(--text-color-third));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.featured-text-info p {
+    line-height: 1.8;
+    color: var(--text-color-second);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+
+/* Animation for Featured Text */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.featured-text > * {
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.featured-text > *:nth-child(1) { animation-delay: 0.2s; }
+.featured-text > *:nth-child(2) { animation-delay: 0.4s; }
+.featured-text > *:nth-child(3) { animation-delay: 0.6s; }
+
+/* Responsive Design Improvements */
+@media (max-width: 768px) {
+    .featured-name {
+        font-size: 2rem;
+    }
+    
+    .featured-text-info p {
+        font-size: 1rem;
+    }
+    
+    .featured-text-card span {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
 }
 
 /* ----- FEATURED IMAGE BOX ----- */
@@ -659,4 +737,3 @@ footer{
         width: 100%;
     }
 }
-
