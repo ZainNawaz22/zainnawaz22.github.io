@@ -76,6 +76,7 @@ i{
 /* ------- BASE -------- */
 body{
     background: var(--body-color);
+    transition: all 0.3s ease-in-out;
 }
 .container{
     width: 100%;
@@ -92,8 +93,13 @@ nav{
     line-height: 90px;
     background: var(--body-color);
     padding-inline: 9vw;
-    transition: .3s;
+    transition: all 0.3s ease-in-out;
     z-index: 100;
+}
+
+[data-theme="dark"] nav {
+    background: #1a1a1a;
+    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.1);
 }
 .nav-logo{
    position: relative;
@@ -102,6 +108,7 @@ nav{
     font-size: 30px;
     font-weight: 600;
     color: var(--text-color-third);
+    transition: color 0.3s ease-in-out;
 }
 .nav-logo span{
     position: absolute;
@@ -123,6 +130,7 @@ nav{
     font-weight: 500;
     padding-inline: 15px;
     margin-inline: 20px;
+    transition: color 0.3s ease-in-out;
 }
 .nav-menu-btn{
     display: none;
@@ -198,6 +206,7 @@ nav{
     font-weight: 600;
     color: var(--text-color-second);
     margin-block: 20px;
+    transition: color 0.3s ease-in-out;
 }
 .typedText{
     text-transform: capitalize;
@@ -207,6 +216,14 @@ nav{
     font-size: 15px;
     margin-bottom: 30px;
     color: var(--text-color-second);
+}
+.featured-text-info p {
+    line-height: 1.8;
+    color: var(--text-color-second);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
 }
 .featured-text-btn{
     display: flex;
@@ -399,6 +416,7 @@ h3{
     background: var(--color-white);
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     border-radius: 20px;
+    transition: all 0.3s ease-in-out;
 }
 .about-info p{
     text-align: center;
@@ -457,6 +475,7 @@ h3{
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
 .project-box>i{
     font-size: 50px;
@@ -502,6 +521,7 @@ h3{
     border-radius: 10px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
 .contact-info>h2{
     color: var(--color-white);
@@ -569,6 +589,7 @@ h3{
     border-radius: 10px;
     padding-inline: 20px;
     outline: none;
+    transition: all 0.3s ease-in-out;
 }
 textarea{
     width: 100%;
@@ -579,6 +600,7 @@ textarea{
     padding: 15px 20px;
     outline: none;
     resize: none;
+    transition: all 0.3s ease-in-out;
 }
 .form-button>.btn{
     display: flex;
@@ -662,7 +684,7 @@ footer{
         width: 100%;
         min-height: 450px;
         height: 90vh;
-        transition: .3s;
+        transition: all 0.3s ease-in-out;
     }
     .nav_menu_list{
         flex-direction: column;
@@ -741,4 +763,110 @@ footer{
 /* In portfolio.css */
 .about-details, .about-stats {
   text-align: justify;
+}
+
+
+/* Dark Mode Variables */
+:root[data-theme="dark"] {
+    --body-color: #1a1a1a;
+    --color-white: #1a1a1a;
+    --text-color-second: #f0f0f0;
+    --text-color-third: #4dbed3;
+    --first-shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Switch Styles */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    background: var(--first-color);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.switch i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--color-white);
+}
+
+.switch .uil-sun {
+    left: 5px;
+}
+
+.switch .uil-moon {
+    right: 5px;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+#theme-toggle:checked + .switch::before {
+    left: 32px;
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 26px;
+    height: 26px;
+    background: var(--color-white);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* Dark Mode Specific Styles */
+[data-theme="dark"] .about-info,
+[data-theme="dark"] .contact-info {
+    background: #2a2a2a;
+    box-shadow: 1px 8px 10px 2px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .project-box {
+    background: #2a2a2a;
+}
+
+[data-theme="dark"] .nav-menu {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .input-field,
+[data-theme="dark"] textarea {
+    background: #2a2a2a;
+    border-color: #444;
+    color: var(--text-color-second);
+}
+
+
+
+body, 
+.about-info,
+.contact-info,
+.project-box,
+.nav-menu,
+.input-field,
+textarea {
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.nav-link,
+.nav-name,
+.featured-name,
+.featured-text-info p {
+    transition: color 0.3s ease-in-out;
 }

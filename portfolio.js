@@ -131,4 +131,20 @@ fetch('https://api.github.com/users/zainnawaz22/repos')
         });
     });
 
+// Theme Switch Logic
+const themeToggle = document.getElementById('theme-toggle');
+const root = document.documentElement;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+root.setAttribute('data-theme', savedTheme);
+themeToggle.checked = savedTheme === 'dark';
+
+// Theme switch handler
+themeToggle.addEventListener('change', function() {
+    const theme = this.checked ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+});
+
 window.addEventListener('scroll', scrollActive)
