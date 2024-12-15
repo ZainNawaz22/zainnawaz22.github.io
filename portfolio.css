@@ -737,3 +737,8 @@ footer{
         width: 100%;
     }
 }
+
+/* In portfolio.css */
+.about-details, .about-stats {
+  text-align: justify;
+}
