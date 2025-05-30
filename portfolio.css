@@ -1,791 +1,303 @@
-/* ----- INTER FONT Link ----- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* ----- FONTS ----- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* ----- VARIABLES ----- */
-:root{
-    --body-color: rgb(250, 250, 250);
-    --color-white: rgb(255, 255, 255);
+:root {
+    /* Dark theme as default */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    
+    --accent-primary: #3b82f6;
+    --accent-secondary: #06b6d4;
+    --accent-hover: #2563eb;
+    
+    --card-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-border: rgba(59, 130, 246, 0.3);
+    
+    --nav-height: 80px;
+    --section-padding: 100px;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    
+    --gradient-primary: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    --gradient-overlay: linear-gradient(180deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.8));
+}
 
-    --text-color-second: rgb(68, 68, 68);
-    --text-color-third: #06b6d4;
-
-    --first-color: #3b82f6;
-    --first-color-hover: rgb(40, 91, 212);
-
-    --second-color: #06b6d4;
-    --third-color: rgb(209, 147, 40);
-    --first-shadow-color: rgba(0, 0, 0, 0.1);
-
+:root[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #e2e8f0;
+    --bg-card: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-tertiary: #64748b;
+    
+    --glass-bg: rgba(248, 250, 252, 0.8);
+    --glass-border: rgba(59, 130, 246, 0.2);
+    --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
 }
 
 /* ----- BASE ----- */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
-/* ----- SMOOTH SCROLL ----- */
-html{
+html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--nav-height);
 }
 
-/* ----- CHANGE THE SCROLL BAR DESIGN ----- */
-::-webkit-scrollbar{
-    width: 10px;
-    border-radius: 25px;
-}
-::-webkit-scrollbar-track{
-    background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb{
-    background: #ccc;
-    border-radius: 30px;
-}
-::-webkit-scrollbar-thumb:hover{
-    background: #bbb;
-}
-
-
-/* ---##-- REUSABLE CSS --##--- */
-
-/* ----- GLOBAL BUTTON DESIGN ----- */
-.btn{
-    font-weight: 500;
-    padding: 12px 20px;
-    background: #efefef;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .4s;
-}
-.btn>i{
-    margin-left: 10px;
-}
-.btn:hover{
-    background: var(--second-color);
-    color: var(--color-white);
-}
-
-/* ----- GLOBAL ICONS DESIGN ----- */
-i{
-    font-size: 16px;
-}
-
-/* ------- BASE -------- */
-body{
-    background: var(--body-color);
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
     line-height: 1.7;
-    transition: all 0.3s ease-in-out;
+    transition: var(--transition);
+    overflow-x: hidden;
 }
-.container{
+
+.container {
     width: 100%;
     position: relative;
 }
 
-/* ----- NAVIGATION BAR ----- */
-nav{
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 90px;
-    line-height: 90px;
-    background: var(--body-color);
-    padding-inline: 9vw;
-    transition: all 0.3s ease-in-out;
-    z-index: 100;
+/* ----- SCROLLBAR ----- */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-[data-theme="dark"] nav {
-    background: #1a1a1a;
-    box-shadow: 0 1px 6px rgba(255, 255, 255, 0.1);
-}
-.nav-logo{
-   position: relative;
-}
-.nav-name{
-    font-size: 30px;
-    font-weight: 600;
-    color: var(--text-color-third);
-    transition: color 0.3s ease-in-out;
-}
-.nav-logo span{
-    position: absolute;
-    top: -15px;
-    right: -20px;
-    font-size: 5em;
-    color: var(--text-color-second);
-}
-.nav-menu, .nav_menu_list{
-    display: flex;
-}
-.nav-menu .nav_list{
-    list-style: none;
-    position: relative;
-}
-.nav-link{
-    text-decoration: none;
-    color: var(--text-color-second);
-    font-weight: 500;
-    padding-inline: 15px;
-    margin-inline: 20px;
-    transition: color 0.3s ease-in-out;
-}
-.nav-menu-btn{
-    display: none;
-}
-.nav-menu-btn i{
-    font-size: 28px;
-    cursor: pointer;
-}
-.active-link{
-    position: relative;
-    color: var(--first-color);
-    transition: .3;
-}
-.active-link::after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translate(-50%, -50%);
-    width: 5px;
-    height: 5px;
-    background: var(--first-color);
-    border-radius: 50%;
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
 }
 
-/* Navigation Styles */
-.nav-button .btn {
-    background: var(--first-color);
-    color: var(--color-white);
-    transition: all 0.3s ease;
-    padding: 10px 20px;
-    border-radius: 25px;
+::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 10px;
 }
 
-.nav-button .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
 }
 
-/* ----- WRAPPER DESIGN ----- */
-.wrapper{
-    padding-inline: 10vw;
-}
-
-/* ----- FEATURED BOX ----- */
-.featured-box{
-    position: relative;
-    display: flex;
-    height: 100vh;
-    min-height: 700px;
-}
-
-/* ----- FEATURED TEXT BOX ----- */
-.featured-text{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    min-height: 80vh;
-    flex-direction: column;
-    width: 50%;
-    padding-left: 20px;
-}
-.featured-text-card span{
-    background: var(--third-color);
-    color: var(--color-white);
-    padding: 3px 8px;
-    font-size: 12px;
-    border-radius: 5px;
-}
-.featured-name{
-    font-size: 50px;
-    font-weight: 600;
-    color: var(--text-color-second);
-    margin-block: 20px;
-    transition: color 0.3s ease-in-out;
-}
-.typedText{
-    text-transform: capitalize;
-    color: var(--text-color-third);
-}
-.featured-text-info{
-    font-size: 15px;
-    margin-bottom: 30px;
-    color: var(--text-color-second);
-}
-.featured-text-info p {
-    line-height: 1.8;
-    color: var(--text-color-second);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    font-size: 1.1rem;
-    transition: color 0.3s ease-in-out;
-}
-.featured-text-btn{
-    display: flex;
-    gap: 20px;
-}
-.featured-text-btn>.blue-btn{
-    background: var(--first-color);
-    color: var(--color-white);
-}
-.featured-text-btn>.blue-btn:hover{
-    background: var(--first-color-hover);
-}
-.social_icons{
-    display: flex;
-    margin-top: 5em;
-    gap: 30px;
-}
-.icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
-}
-.icon:hover{
-    color: var(--first-color);
-}
-
-/* Featured Section Styles */
-.featured-text-card span {
-    background: linear-gradient(to right, var(--first-color), var(--second-color));
-    padding: 8px 16px;
-    border-radius: 8px;
-    color: var(--color-white);
-    font-weight: 500;
-    font-size: 1.1rem;
-    display: inline-block;
+/* ----- TYPOGRAPHY ----- */
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-.featured-name {
-    font-size: 2.5rem;
-    margin: 1.5rem 0;
-    background: linear-gradient(to right, var(--first-color), var(--text-color-third));
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 700;
+    background-clip: text;
 }
 
-.featured-text-info p {
-    line-height: 1.8;
-    color: var(--text-color-second);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    font-size: 1.1rem;
-}
-
-/* Animation for Featured Text */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.featured-text > * {
-    animation: fadeInUp 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-.featured-text > *:nth-child(1) { animation-delay: 0.2s; }
-.featured-text > *:nth-child(2) { animation-delay: 0.4s; }
-.featured-text > *:nth-child(3) { animation-delay: 0.6s; }
-
-/* Responsive Design Improvements */
-@media (max-width: 768px) {
-    .featured-name {
-        font-size: 2rem;
-    }
-    
-    .featured-text-info p {
-        font-size: 1rem;
-    }
-    
-    .featured-text-card span {
-        font-size: 1rem;
-        padding: 6px 12px;
-    }
-}
-
-/* ----- FEATURED IMAGE BOX ----- */
-.featured-image{
-    display: flex;
-    justify-content: right;
-    align-content: center;
-    min-height: 80vh;
-    width: 50%;
-}
-.image{
-    margin: auto 0;
-    width: 380px;
-    height: 380px;
-    border-radius: 55% 45% 55% 45%;
-    overflow: hidden;
-    animation: imgFloat 7s ease-in-out infinite;
-}
-.image img{
-    width: 380px;
-    height: 380px;
-    object-fit: cover;
-}
-@keyframes imgFloat {
-    50%{
-        transform: translateY(10px);
-        border-radius: 45% 55% 45% 55%;
-    }
-}
-.scroll-btn{
-   position: absolute;
-   bottom: 0;
-   left: 50%;
-   translate: -50%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 150px;
-   height: 50px;
-   gap: 5px;
-   text-decoration: none;
-   color: var(--text-color-second);
-   background: var(--color-white);
-   border-radius: 30px;
-   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-}
-.scroll-btn i{
-    font-size: 20px;
-}
-
-/* ----- MAIN BOX ----- */
-.section{
-    padding-block: 5em;
-}
-.row{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 50px;
-}
-.col{
-    display: flex;
-    width: 50%;
-}
-
-/* -- ## --- RESUABLE CSS -- ## -- */
-.top-header{
-    text-align: center;
-    margin-bottom: 5em;
-}
-.top-header h1{
+h2 {
+    font-size: 2.5rem;
     font-weight: 600;
-    color: var(--text-color-second);
-    margin-bottom: 10px;
-}
-.top-header span{
-    color: #999;
-}
-h3{
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-color-second);
-    margin-bottom: 15px;
 }
 
-/* ----- ABOUT INFO ----- */
-.about-info{
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-primary);
+    transition: var(--transition);
     position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-block: 30px 70px;
-    padding-inline: 20px;
-    width: 100%;
-    background: var(--color-white);
-    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
-    border-radius: 20px;
-    transition: all 0.3s ease-in-out;
 }
-.about-info p{
-    text-align: center;
-    font-size: 15px;
-    color: #777;
+
+a:hover {
+    color: var(--accent-secondary);
 }
-.about-btn button{
+
+a::after {
+    content: '';
     position: absolute;
-    right: 20px;
-    bottom: 20px;
-    background: var(--first-color);
-    color: var(--color-white);
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: var(--transition);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ----- BUTTONS ----- */
+.btn {
+    font-weight: 500;
+    padding: 12px 24px;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+    border: none;
     border-radius: 30px;
-}
-.about-btn button:hover{
-    background: var(--first-color-hover);
-}
-
-/* ----- ABOUT / SKILLS BOX ----- */
-.skills-box{
-    margin: 10px;
-}
-.skills-header{
-    margin-bottom: 30px;
-}
-.skills-list{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-}
-.skills-list span{
-    font-size: 14px;
-    background: var(--first-color);
-    color: var(--color-white);
-    padding: 2px 10px;
-    border-radius: 5px;
-}
-
-/* ----- PROJECTS BOX ----- */
-.project-container{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.project-box{
-    position: relative;
-    display: flex;
-    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
     align-items: center;
-    flex-direction: column;
-    width: 30%;
-    height: 250px;
-    background: var(--color-white);
-    border-radius: 20px;
-    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    justify-content: center;
+    position: relative;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
-}
-.project-box>i{
-    font-size: 50px;
-    color: #00B5E7;
-    margin-bottom: 25px;
-}
-.project-box label{
-    font-size: 15px;
-    color: #777;
-}
-.project-box::after, .contact-info::after{
-    content: "";
-    position: absolute;
-    bottom: -100%;
-    background: var(--second-color);
-    width: 100%;
-    height: 100%;
-    transition: .4s;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
     z-index: 1;
 }
-.project-box:hover.project-box::after,
-.contact-info:hover.contact-info::after{
-    bottom: 0;
-}
-.project-box:hover.project-box i,
-.project-box:hover.project-box>h3,
-.project-box:hover.project-box>label{
-    color: var(--color-white);
-    z-index: 2;
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--accent-hover);
+    transition: var(--transition);
+    z-index: -1;
+    border-radius: 30px;
 }
 
-/* ----- CONTACT BOX ----- */
-.contact-info{
+.btn:hover::before {
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn > i {
+    margin-left: 10px;
+    font-size: 1.2rem;
+}
+
+/* ----- NAVIGATION BAR ----- */
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: var(--nav-height);
+    padding-inline: 5vw;
+    z-index: 100;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+nav.scrolled {
+    height: calc(var(--nav-height) - 10px);
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.5);
+}
+
+.nav-logo {
     position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 20px 30px;
-    width: 100%;
-    height: 315px;
-    background: var(--second-color);
-    border-radius: 10px;
-    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
 }
-.contact-info>h2{
-    color: var(--color-white);
-    margin-bottom: 20px;
+
+.nav-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-.contact-info>p{
+
+.nav-logo span {
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    font-size: 3em;
+    color: var(--accent-secondary);
+}
+
+.nav-menu, .nav_menu_list {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: var(--color-white);
-    margin-block: 5px;
-}
-.contact-info p>i{
-    font-size: 18px;
-}
-.contact-info::after{
-    background: var(--color-white);
-}
-.contact-info:hover.contact-info h2,
-.contact-info:hover.contact-info p,
-.contact-info:hover.contact-info i{
-    color: #777;
-    z-index: 2;
 }
 
+.nav-menu .nav_list {
+    list-style: none;
+    position: relative;
+}
 
-.project-box {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 10px;
-    
-
-}
-.project-box h3 {
-    margin: 0;
-    font-size: 20px;
-}
-.project-box p {
-    margin: 10px 0;
-    color: #777;
-}
-.project-box a {
-    color: var(--first-color);
+.nav-link {
     text-decoration: none;
-
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin-inline: 0.5rem;
+    transition: var(--transition);
+    border-radius: 4px;
 }
 
-/* ----- CONTACT FORM ----- */
-.form-control{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-}
-.form-inputs{
-    display: flex;
-    gap: 10px;
-    width: 100%;
-}
-.input-field{
-    width: 50%;
-    height: 55px;
-    background: transparent;
-    border: 2px solid #AAA;
-    border-radius: 10px;
-    padding-inline: 20px;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-}
-textarea{
-    width: 100%;
-    height: 250px;
-    background: transparent;
-    border: 2px solid #AAA;
-    border-radius: 10px;
-    padding: 15px 20px;
-    outline: none;
-    resize: none;
-    transition: all 0.3s ease-in-out;
-}
-.form-button>.btn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--second-color);
-    color: var(--color-white);
-}
-.form-button>.btn:hover{
-    background: #00B5E7;
-}
-.form-button i{
-    font-size: 18px;
-    rotate: -45deg;
+.nav-link:hover {
+    color: var(--text-primary);
+    background: rgba(59, 130, 246, 0.1);
 }
 
-/* ----- FOOTER BOX ----- */
-footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 30px;
-    background: #F8F8F8;
-    padding-block: 40px 60px;
+.nav-link::after {
+    display: none;
 }
-.top-footer p{
-    font-size: 25px;
+
+.active-link {
+    color: var(--accent-primary);
     font-weight: 600;
 }
-.middle-footer .footer-menu{
-    display: flex;
-}
-.footer_menu_list{
-    list-style: none;
-}
-.footer_menu_list a{
-    text-decoration: none;
-    color: var(--text-color-second);
-    font-weight: 500;
-    margin-inline: 20px;
-}
-.footer-social-icons{
-    display: flex;
-    gap: 30px;   
-}
-.bottom-footer{
-    font-size: 14px;
-    margin-top: 10px;
+
+.active-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: var(--accent-primary);
+    border-radius: 50%;
 }
 
-
-/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
-@media only screen and (max-width: 1024px){
-    .featured-text{
-        padding: 0;
-    }
-    .image, .image img{
-        width: 320px;
-        height: 320px;
-    }
+.nav-menu-btn {
+    display: none;
+    cursor: pointer;
 }
 
-/* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
-@media only screen and (max-width: 900px) {
-    .nav-button{
-        display: none;
-    }
-    .nav-menu.responsive{
-        left: 0;
-    }
-    .nav-menu{
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
-        width: 100%;
-        min-height: 450px;
-        height: 90vh;
-        transition: all 0.3s ease-in-out;
-    }
-    .nav_menu_list{
-        flex-direction: column;
-    }
-    .nav-menu-btn{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .featured-box{
-        flex-direction: column;
-        justify-content: center;
-        height: 100vh;
-    }
-    .featured-text{
-        width: 100%;
-        order: 2;
-        justify-content: center;
-        align-content: flex-start;
-        min-height: 60vh;
-    }
-    .social_icons{
-        margin-top: 2em;
-    }
-    .featured-image{
-        order: 1;
-        justify-content: center;
-        min-height: 150px;
-        width: 100%;
-        margin-top: 65px;
-    }
-    .image, .image img{
-        width: 150px;
-        height: 150px;
-    }
-    .row{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 50px;
-    }
-    .col{
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-    .about-info, .contact-info{
-        width: 100%;
-    }
-    .project-container{
-        justify-content: flex-start;
-    }
-    .project-box{
-        width: 33.33%;
-    }
-
+.nav-menu-btn i {
+    font-size: 1.8rem;
+    color: var(--text-primary);
 }
 
-/* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
-
-@media only screen and (max-width: 540px){
-    .featured-name{
-        font-size: 40px;
-    }
-    .project-box{
-        width: 100%;
-    }
-    .form-inputs{
-        flex-direction: column;
-    }
-    .input-field{
-        width: 100%;
-    }
-}
-
-/* In portfolio.css */
-.about-details, .about-stats {
-  text-align: justify;
-}
-
-
-/* Dark Mode Variables */
-:root[data-theme="dark"] {
-    --card-bg-dark: #1e293b;
-    --card-border-color-dark: #334155;
-    --body-color: #0f172a;
-    --color-white: #1a1a1a;
-    --text-color-second: #FFFFFF;
-    --text-color-third: #06b6d4;
-    --first-shadow-color: rgba(255, 255, 255, 0.1);
-    --first-color: #3b82f6;
-    --second-color: #06b6d4;
-    --text-color-body-dark: #D1D5DB;
-}
-
-/* Theme Switch Styles */
 .theme-switch {
+    margin-left: 1rem;
     display: flex;
     align-items: center;
-    margin-right: 20px;
 }
 
 .switch {
@@ -793,26 +305,42 @@ footer{
     display: inline-block;
     width: 60px;
     height: 30px;
+    background: var(--bg-secondary);
+    border-radius: 30px;
     cursor: pointer;
-    background: var(--first-color);
-    border-radius: 20px;
-    transition: 0.3s;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    background: var(--accent-primary);
+    transition: var(--transition);
+    z-index: 1;
 }
 
 .switch i {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px;
-    color: var(--color-white);
+    font-size: 16px;
+    transition: var(--transition);
 }
 
 .switch .uil-sun {
-    left: 5px;
+    left: 8px;
+    color: #ffb700;
 }
 
 .switch .uil-moon {
-    right: 5px;
+    right: 8px;
+    color: #cbd5e1;
 }
 
 #theme-toggle {
@@ -820,706 +348,805 @@ footer{
 }
 
 #theme-toggle:checked + .switch::before {
-    left: 32px;
+    transform: translateX(30px);
 }
 
-.switch::before {
+.nav-button .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+/* ----- WRAPPER DESIGN ----- */
+.wrapper {
+    padding-inline: 5vw;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ----- FEATURED BOX ----- */
+.featured-box {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+    overflow: hidden;
+}
+
+/* ----- FEATURED TEXT BOX ----- */
+.featured-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.featured-name {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.typedText {
+    color: var(--accent-secondary);
+}
+
+.featured-text-info p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.featured-text-btn {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.social_icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    transition: var(--transition);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.icon:hover {
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.icon a {
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.icon a::after {
+    display: none;
+}
+
+/* ----- FEATURED IMAGE BOX ----- */
+.featured-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image {
+    width: 380px;
+    height: 380px;
+    border-radius: 60% 40% 50% 50% / 50% 50% 60% 40%;
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--card-shadow);
+    border: 3px solid var(--accent-primary);
+    animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 50% 50% / 50% 50% 60% 40%;
+    }
+    50% {
+        border-radius: 40% 60% 45% 55% / 55% 45% 40% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 50% 50% / 50% 50% 60% 40%;
+    }
+}
+
+.image::before {
     content: '';
     position: absolute;
-    left: 2px;
-    top: 2px;
-    width: 26px;
-    height: 26px;
-    background: var(--color-white);
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+/* Floating particles */
+.featured-image::before,
+.featured-image::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    transition: 0.3s;
+    background: var(--gradient-primary);
+    filter: blur(80px);
+    opacity: 0.15;
+    z-index: -1;
+    animation: float 10s ease-in-out infinite alternate;
 }
 
-/* Dark Mode Specific Styles */
-[data-theme="dark"] .about-info,
-[data-theme="dark"] .contact-info {
-    background: #2a2a2a;
-    box-shadow: 1px 8px 10px 2px rgba(255, 255, 255, 0.05);
+.featured-image::before {
+    top: 10%;
+    right: 20%;
 }
 
-[data-theme="dark"] .project-box {
-    background: #2a2a2a;
+.featured-image::after {
+    bottom: 10%;
+    left: 20%;
+    animation-delay: 2s;
 }
 
-[data-theme="dark"] .nav-menu {
-    background: rgba(26, 26, 26, 0.95);
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(20px, 20px);
+    }
+}
+
+/* ----- SECTION DESIGN ----- */
+.section {
+    padding: var(--section-padding) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    filter: blur(100px);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+#about::before {
+    top: 10%;
+    left: -10%;
+}
+
+#projects::before {
+    bottom: 10%;
+    right: -10%;
+}
+
+#contact::before {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.top-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.top-header h1 {
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.top-header h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.top-header span {
+    color: var(--text-tertiary);
+    font-size: 1.1rem;
+}
+
+/* ----- ABOUT SECTION ----- */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.about-info {
+    position: relative;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: var(--transition);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
 }
 
-[data-theme="dark"] .input-field,
-[data-theme="dark"] textarea {
-    background: #2a2a2a;
-    border-color: #444;
-    color: var(--text-color-second);
+.about-info:hover {
+    transform: translateY(-10px);
 }
 
-
-
-body, 
-.about-info,
-.contact-info,
-.project-box,
-.nav-menu,
-.input-field,
-textarea {
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-}
-
-.nav-link,
-.nav-name,
-.featured-name,
-.featured-text-info p {
-    transition: color 0.3s ease-in-out;
-}
-
-/* Styles migrated from css/master.css */
-hr {
-  margin-bottom: 3rem;
-  margin-top: 3rem;
-}
-
-/* this controls how the bullet points in the resume page looks */
-ul {
-  display: table;
-  margin: 0 auto;
-  text-align: left;
-}
-
-h1 {
-  margin-bottom: 0.5rem;
-  margin-top: 3rem;
-}
-
-h2 {
-  /* Default margins, color is handled by theme or specific components */
-  margin-bottom: 2.5rem;
-  margin-top: 2.5rem;
-}
-
-h4 {
-  margin-bottom: 1rem;
-  margin-top: 0.5rem;
-}
-
-h5 {
-  margin-top: 0.5rem;
-}
-
-:root[data-theme="dark"] body {
-    color: var(--text-color-body-dark, #D1D5DB);
-}
-
-/* Ensuring various text elements in dark mode use the new body text color */
-:root[data-theme="dark"] p,
-:root[data-theme="dark"] .featured-text-info p,
-:root[data-theme="dark"] .about-info p,
-:root[data-theme="dark"] .project-box label,
-:root[data-theme="dark"] .contact-info p,
-:root[data-theme="dark"] .footer_menu_list a,
-:root[data-theme="dark"] .bottom-footer p,
-:root[data-theme="dark"] .top-header span {
-    color: var(--text-color-body-dark, #D1D5DB) !important;
-}
-
-/* Specific adjustments for navigation elements in dark mode */
-:root[data-theme="dark"] .nav-link {
-    color: var(--text-color-body-dark, #D1D5DB);
-}
-:root[data-theme="dark"] .active-link {
-    color: var(--first-color, #3b82f6) !important; /* Active link should use accent */
-}
-:root[data-theme="dark"] .nav-name {
-    color: var(--text-color-third, #06b6d4); /* Or primary accent if preferred */
-}
-
-/* Font hierarchy - using !important cautiously, assuming these are global overrides */
-h1, .featured-name { font-size: 2.8rem !important; font-weight: 700 !important; }
-h2 { font-size: 2.2rem !important; font-weight: 600 !important; }
-h3 { font-size: 1.8rem !important; font-weight: 600 !important; }
-
-/* Ensure h3 in dark mode has correct color (white, as per --text-color-second) */
-:root[data-theme="dark"] h3 {
-    color: var(--text-color-second, #FFFFFF) !important;
-}
-
-
-/* Gradient for featured name */
-.featured-name {
-    background: linear-gradient(to right, var(--first-color, #3b82f6), var(--second-color, #06b6d4));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--first-color, #3b82f6); /* Fallback */
-}
-
-/* Layout Modernization: Card-based Design & Spacing */
-
-/* Standardize section padding - already .section { padding-block: 5em; } - this seems fine. */
-
-/* Card base style - enhance existing */
-.about-info,
-.skills-box, /* Applying card styling to skills-box */
-.project-box,
-.contact-info {
-    padding: 2rem; /* Consistent padding within cards */
-    transition: all 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease; /* Added transform and box-shadow to default transition */
-}
-
-/* Card background and borders in dark theme */
-:root[data-theme="dark"] .about-info,
-:root[data-theme="dark"] .skills-box,
-:root[data-theme="dark"] .project-box,
-:root[data-theme="dark"] .contact-info {
-    background-color: var(--card-bg-dark, #1e293b);
-    border: 1px solid var(--card-border-color-dark, #334155);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Subtle shadow for dark theme */
-}
-
-/* Ensure .skills-box fills its column and has some margin if multiple skill categories are stacked */
-.skills-box {
-    width: 100%; /* Ensure it takes full width of its .col container */
-    margin-bottom: 20px; /* Space between multiple skill boxes if they are stacked in the same column */
-}
-.skills-box:last-child {
-    margin-bottom: 0;
-}
-
-
-/* Project container: Ensure good spacing for wrapped items */
-.project-container {
-    gap: 30px; /* Increase gap for better spacing between project cards */
-}
-/* Adjust project-box width for responsiveness if needed, current 30% or 33.33% might be okay for 3-column */
-/* On smaller screens (max-width: 900px), it becomes 33.33% */
-/* On even smaller (max-width: 540px), it becomes 100% */
-
-/* General spacing improvements */
-/* Ensure .row has enough gap, already 50px, which is good */
-/* Ensure .col has space if they were to stack vertically on smaller screens (handled by flex-direction: column in media queries) */
-
-/* Visual Section background variations (other than cards) */
-/* The main body is already #0f172a. Cards are #1e293b. */
-/* We can consider a slightly different background for the footer or header if needed, but let's keep it simple for now. */
-:root[data-theme="dark"] nav {
-    background: rgba(15, 23, 42, 0.8); /* Dark navy with some transparency for glassmorphism */
-    -webkit-backdrop-filter: blur(10px); /* Safari */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); /* Adjusted shadow for dark bg */
-}
-
-:root[data-theme="dark"] footer {
-    background: #0a101f; /* Slightly darker/different navy for footer */
-}
-
-/* --- Interactive Elements & Visual Enhancements --- */
-
-/* Standard Hover Effects for Links (already partially covered by nav-link, but ensure general 'a' tags too) */
-a {
-    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for potential subtle movements */
-}
-
-:root[data-theme="dark"] a {
-    color: var(--text-color-third, #06b6d4); /* Default link color in dark mode */
-}
-
-:root[data-theme="dark"] a:hover,
-:root[data-theme="dark"] .nav-link:hover, /* Already has color transition */
-:root[data-theme="dark"] .footer_menu_list a:hover {
-    color: var(--first-color, #3b82f6); /* Hover color to primary accent */
-    text-decoration: none; /* Ensure no underline on hover */
-}
-
-/* Button Enhancements */
-.btn {
-    /* Base transition is already .4s, let's make it 0.3s to match others */
-    transition: all 0.3s ease; /* Standardize transition */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for buttons */
-    border: 1px solid transparent; /* Prepare for border on hover/focus */
-}
-
-.btn:hover, .btn:focus {
-    transform: translateY(-3px) scale(1.05); /* Lift and scale effect */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
-    /* Default hover background is var(--second-color), color var(--color-white) - this is fine */
-}
-
-/* Dark theme button specific adjustments if needed */
-:root[data-theme="dark"] .btn {
-    background: var(--first-color, #3b82f6); /* Primary accent for buttons in dark mode */
-    color: #FFFFFF; /* White text on accent buttons */
-    border: 1px solid var(--first-color, #3b82f6);
-}
-
-:root[data-theme="dark"] .btn:hover,
-:root[data-theme="dark"] .btn:focus {
-    background: var(--second-color, #06b6d4); /* Secondary accent on hover */
-    border-color: var(--second-color, #06b6d4);
-    color: #FFFFFF;
-}
-
-/* Special button: .featured-text-btn>.blue-btn (already uses --first-color) */
-/* No specific changes needed if above .btn styles are sufficient */
-
-/* Social Media Icons Hover Effects */
-.social_icons .icon {
-    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-    border-radius: 50%; /* Ensure it's a circle for background effect */
-    background-color: transparent; /* Explicitly set transparent background */
-}
-
-.social_icons .icon:hover {
-    transform: scale(1.2);
-    /* color: var(--first-color); Is already defined */
-    background-color: rgba(59, 130, 246, 0.1); /* Subtle background matching primary accent on hover */
-}
-:root[data-theme="dark"] .social_icons .icon {
-    box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
-}
-:root[data-theme="dark"] .social_icons .icon:hover {
-    color: var(--first-color, #3b82f6);
-    background-color: rgba(59, 130, 246, 0.15); /* Slightly more visible background on hover in dark mode */
-}
-
-
-/* Card Hover Effects (Project cards, About card, etc.) */
-.project-box:hover,
-.about-info:hover,
-.skills-box:hover,
-.contact-info:hover {
-    transform: translateY(-5px) scale(1.02); /* Lift and slightly scale card */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* More pronounced shadow */
-}
-
-/* Dark theme card hover adjustments */
-:root[data-theme="dark"] .project-box:hover,
-:root[data-theme="dark"] .about-info:hover,
-:root[data-theme="dark"] .skills-box:hover,
-:root[data-theme="dark"] .contact-info:hover {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Shadow might need to be darker or use a very subtle light glow */
-    border-color: var(--first-color, #3b82f6); /* Accent border on hover */
-}
-
-
-/* --- Visual Enhancements --- */
-
-/* Glassmorphism for Nav Bar (already applied in previous step for dark theme) */
-/* Let's ensure light theme also has a slightly blurred background for consistency if desired, or keep it solid */
-nav { /* General nav styles */
-    /* position: fixed; display: flex; ... existing styles */
-    /* background: var(--body-color); Default background */
-    /* Adding a subtle shadow for light mode too */
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-}
-:root[data-theme="light"] nav { /* If we want glassmorphism for light theme too */
-    background: rgba(250, 250, 250, 0.85); /* Slightly transparent version of light body color */
-    -webkit-backdrop-filter: blur(8px); /* Safari */
-    backdrop-filter: blur(8px);
-}
-
-
-/* Input Fields and Textarea Styling */
-.input-field,
-textarea {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #CCC; /* Lighter border for light mode */
-    border-radius: 8px; /* Slightly more rounded */
-    padding: 12px 15px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input-field:focus,
-textarea:focus {
-    border-color: var(--first-color, #3b82f6);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Focus ring with accent color */
-    outline: none;
-}
-
-:root[data-theme="dark"] .input-field,
-:root[data-theme="dark"] textarea {
-    background: rgba(30, 41, 59, 0.7); /* Dark input background, from --card-bg-dark with transparency */
-    border-color: var(--card-border-color-dark, #334155);
-    color: var(--text-color-body-dark, #D1D5DB);
-}
-
-:root[data-theme="dark"] .input-field:focus,
-:root[data-theme="dark"] textarea:focus {
-    border-color: var(--first-color, #3b82f6);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Focus ring for dark mode */
-}
-
-
-/* Subtle box-shadows and borders are applied above to cards, buttons, inputs */
-
-/* (Optional) 3D transform effects on key elements (e.g., project cards on hover) */
-/* Add to .project-box:hover if desired */
-/* transform: translateY(-5px) scale(1.02) perspective(1000px) rotateY(3deg); */
-/* This can be combined with the existing transform or be a separate, more specific hover effect */
-
-/* Floating particle animations - This is complex for pure CSS and might be better as a stretch goal with JS. */
-/* For now, we will not implement CSS particle animations. */
-
-/* --- Styles for Resume Page (resume.html) --- */
-
-/* Apply dark theme by default if data-theme is not set, or specific styles for .resume-page */
-/* For simplicity, we assume the dark theme is default or activated. */
-/* These styles will apply when .resume-page class is present on the body */
-
-.resume-page {
-    background-color: var(--body-color); /* Use body-color which respects theme */
-    color: var(--text-color-second); /* Use text-color-second for default text, respects theme */
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7;
-    padding: 2rem; /* Add some padding to the resume page */
-    text-align: left; /* Override general text-align: center from old master.css if any lingered */
-}
-
-/* Ensure dark theme variables are used if theme is dark */
-:root[data-theme="dark"] .resume-page {
-    background-color: var(--body-color, #0f172a); /* Dark navy background */
-    color: var(--text-color-body-dark, #D1D5DB); /* Light gray text */
-}
-
-
-.resume-page h1,
-.resume-page h2,
-.resume-page h3,
-.resume-page h4,
-.resume-page h5 {
-    color: var(--text-color-second); /* Default heading color */
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-:root[data-theme="dark"] .resume-page h1,
-:root[data-theme="dark"] .resume-page h2,
-:root[data-theme="dark"] .resume-page h3,
-:root[data-theme="dark"] .resume-page h4,
-:root[data-theme="dark"] .resume-page h5 {
-    color: #FFFFFF; /* White headings in dark mode */
-}
-
-
-.resume-page h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    border-bottom: 2px solid var(--first-color, #3b82f6); /* Accent color border */
-    padding-bottom: 0.5rem;
+.about-info h3 {
+    position: relative;
+    display: inline-block;
     margin-bottom: 1.5rem;
 }
 
-.resume-page h2 {
-    font-size: 2rem;
-    font-weight: 600;
+.about-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
 }
 
-.resume-page h3 {
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-
-.resume-page h4 { /* Typically job titles or section sub-sub-headings */
-    font-size: 1.2rem;
-    font-weight: 500; /* Normal or semi-bold for emphasis */
-    color: var(--text-color-third); /* Accent color for these titles */
-}
-:root[data-theme="dark"] .resume-page h4 {
-     color: var(--text-color-third, #06b6d4);
-}
-
-
-.resume-page p {
-    color: var(--text-color-second); /* Default paragraph color */
-    margin-bottom: 0.5rem;
-}
-:root[data-theme="dark"] .resume-page p {
-    color: var(--text-color-body-dark, #D1D5DB);
-}
-
-.resume-page a {
-    color: var(--first-color); /* Links with primary accent */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-:root[data-theme="dark"] .resume-page a {
-    color: var(--text-color-third, #06b6d4); /* Links with cyan in dark mode */
-}
-
-.resume-page a:hover {
-    color: var(--second-color); /* Links hover to secondary accent */
-    text-decoration: underline;
-}
-:root[data-theme="dark"] .resume-page a:hover {
-    color: var(--first-color, #3b82f6); /* Links hover to primary accent in dark mode */
-}
-
-.resume-page hr {
-    border: none;
-    border-top: 1px solid var(--first-shadow-color); /* Subtle horizontal line */
-    margin-top: 2rem;
+.about-details {
     margin-bottom: 2rem;
 }
-:root[data-theme="dark"] .resume-page hr {
-    border-top: 1px solid var(--card-border-color-dark, #334155);
+
+.about-stats {
+    margin-bottom: 1.5rem;
+    display: grid;
+    gap: 0.5rem;
 }
 
-.resume-page ul {
-    list-style-type: disc; /* Standard bullets */
-    padding-left: 20px; /* Indent list */
+.about-stats p {
+    margin-bottom: 0.5rem;
+}
+
+.about-bio {
+    margin-bottom: 1.5rem;
+}
+
+.specializations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.specialty-tag {
+    padding: 0.5rem 1rem;
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--accent-primary);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.specialty-tag:hover {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+}
+
+.about-btn {
+    position: relative;
+}
+
+/* ----- SKILLS SECTION ----- */
+.skills-box {
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+}
+
+.skills-box:hover {
+    transform: translateY(-10px);
+}
+
+.skills-header {
+    margin-bottom: 1.5rem;
+}
+
+.skills-header h3 {
+    position: relative;
+    display: inline-block;
+}
+
+.skills-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-item {
+    width: 100%;
     margin-bottom: 1rem;
 }
 
-.resume-page ul li {
+.skill-item span {
+    display: block;
     margin-bottom: 0.5rem;
-    color: var(--text-color-second); /* Default list item color */
-}
-:root[data-theme="dark"] .resume-page ul li {
-    color: var(--text-color-body-dark, #D1D5DB);
+    color: var(--text-secondary);
 }
 
-/* Footer styling for resume page if it has one, ensure it matches */
-.resume-page footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--first-shadow-color);
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(203, 213, 225, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+/* ----- PROJECTS SECTION ----- */
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-box {
+    position: relative;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    overflow: hidden;
+    height: 200px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.project-box h3 {
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
     text-align: center;
-    color: var(--text-color-second);
-}
-:root[data-theme="dark"] .resume-page footer {
-    border-top: 1px solid var(--card-border-color-dark, #334155);
-    color: var(--text-color-body-dark, #D1D5DB);
 }
 
-
-.resume-page footer a {
-    color: var(--first-color);
-}
-:root[data-theme="dark"] .resume-page footer a {
-    color: var(--text-color-third, #06b6d4);
+.project-box:hover {
+    transform: translateY(-10px);
 }
 
-.resume-page footer a:hover {
-    color: var(--second-color);
-}
-:root[data-theme="dark"] .resume-page footer a:hover {
-    color: var(--first-color, #3b82f6);
+.project-box:hover::before {
+    opacity: 0.9;
 }
 
-/* Hide theme switcher and nav-menu-btn if they were part of a shared header not intended for resume */
-/* These selectors assume resume.html might re-use the main site's <nav id="header"> */
-/* If resume.html has its own simple header or no header, these rules won't cause issues. */
-.resume-page nav#header .theme-switch,
-.resume-page nav#header .nav-menu-btn,
-.resume-page nav#header .nav-button {
-    display: none !important;
+.project-box:hover h3 {
+    color: var(--text-primary);
+    transform: translateY(-5px);
 }
-/* More specific rule to hide main navigation menu list if resume page should not have it */
-.resume-page nav#header .nav-menu {
-    display: none !important;
+
+/* ----- CONTACT SECTION ----- */
+.contact-info {
+    position: relative;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
 }
-/* If resume.html has a very simple structure, e.g. no <nav id="header">, then the above are harmless. */
-/* If it has a different header that should be visible, adjust selectors or remove these rules. */
-/* For now, assuming the goal is a very clean resume display, possibly without the main site navigation. */
 
-/* --- Responsive Design Enhancements --- */
+.contact-info:hover {
+    transform: translateY(-10px);
+}
 
-/* Base font size for REM calculations, if not already set (usually on html or body) */
-/* html { font-size: 16px; } */ /* Assuming default or already set */
+.contact-info h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
 
-/* @media only screen and (max-width: 1024px) - Large tablets and small desktops */
+.contact-info h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.contact-info p i {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+}
+
+.form-control {
+    position: relative;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+}
+
+.form-control:hover {
+    transform: translateY(-10px);
+}
+
+.form-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(203, 213, 225, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.text-area {
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(203, 213, 225, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: var(--transition);
+    min-height: 150px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.form-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ----- FOOTER ----- */
+footer {
+    background: var(--bg-secondary);
+    padding: 3rem 5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-primary);
+}
+
+.top-footer {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.top-footer p {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.middle-footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer_menu_list {
+    list-style: none;
+}
+
+.footer_menu_list a {
+    color: var(--text-secondary);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.footer_menu_list a:hover {
+    color: var(--accent-primary);
+}
+
+.footer-social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.bottom-footer {
+    text-align: center;
+}
+
+.bottom-footer p {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+}
+
+.bottom-footer a {
+    color: var(--accent-primary);
+}
+
+/* ----- MEDIA QUERIES ----- */
 @media only screen and (max-width: 1024px) {
-    .wrapper {
-        padding-inline: 8vw; /* Slightly reduce padding */
+    :root {
+        --section-padding: 80px;
     }
-    .featured-name,
-    :root[data-theme="dark"] .featured-name { /* Ensure dark theme also picks this up */
-        font-size: 2.5rem !important; /* Adjust hero heading */
+    
+    h1, .featured-name {
+        font-size: 3rem;
     }
-    h1 { font-size: 2.5rem !important; }
-    h2 { font-size: 2rem !important; }
-    h3 { font-size: 1.6rem !important; }
-
-    .project-box {
-        /* width: 48%; */ /* Example if going for 2-column layout here, original is 30% or 33% */
-        /* If project-container uses gap, this needs to be calculated carefully. */
-        /* Current .project-box width at 900px is 33.33%, let's keep that structure */
+    
+    .featured-box {
+        grid-template-columns: 1fr;
     }
-    .featured-text { /* Already adjusted padding:0 in original */
-        padding-left: 10px; /* Add a little padding back if 0 is too stark */
-        padding-right: 10px;
+    
+    .featured-image {
+        order: -1;
+        padding-top: 4rem;
     }
-
-}
-
-/* @media only screen and (max-width: 900px) - Tablets */
-@media only screen and (max-width: 900px) {
-    .wrapper {
-        padding-inline: 6vw; /* Further reduce padding */
-    }
-    .featured-name,
-    :root[data-theme="dark"] .featured-name {
-        font-size: 2.2rem !important; /* Smaller hero heading */
-    }
-    h1 { font-size: 2.2rem !important; }
-    h2 { font-size: 1.8rem !important; }
-    h3 { font-size: 1.5rem !important; }
-
-    /* Apply to general text elements, ensuring specificity for dark theme if needed */
-    body,
-    p,
-    .featured-text-info p, /* This was already p, but being explicit is fine */
-    .about-info p,
-    .project-box label,
-    .contact-info p,
-    .footer_menu_list a,
-    .bottom-footer p,
-    .top-header span {
-        font-size: 0.95rem;
-    }
-
-    /* Ensure dark theme text also gets this font size if not inheriting correctly */
-    :root[data-theme="dark"] body,
-    :root[data-theme="dark"] p,
-    :root[data-theme="dark"] .featured-text-info p,
-    :root[data-theme="dark"] .about-info p,
-    :root[data-theme="dark"] .project-box label,
-    :root[data-theme="dark"] .contact-info p,
-    :root[data-theme="dark"] .footer_menu_list a,
-    :root[data-theme="dark"] .bottom-footer p,
-    :root[data-theme="dark"] .top-header span {
-        font-size: 0.95rem !important; /* Using important to ensure override if base styles are too specific */
-    }
-
-
-    /* Ensure cards have appropriate padding on tablets */
-    .about-info,
-    .skills-box,
-    .project-box,
-    .contact-info {
-        padding: 1.5rem; /* Reduce card padding */
-    }
-
-    .project-box {
-         /* Original has width: 33.33%; This implies it might try to fit 3 in a row. */
-         /* For tablets, 2 in a row is often better. */
-         width: calc(50% - 15px); /* Adjust for 2 columns, considering the 30px gap in project-container */
-    }
-    .project-container {
-        justify-content: space-around; /* Better distribution for fewer items per row */
-    }
-     .featured-box {
-        min-height: auto; /* Allow featured box to shrink if content is less */
-        padding-top: 100px; /* Add padding because nav is fixed */
-        padding-bottom: 40px;
-    }
+    
     .featured-text {
-        min-height: auto; /* Adjust min-height */
+        text-align: center;
+        align-items: center;
     }
-
-
+    
+    .social_icons {
+        justify-content: center;
+    }
 }
 
-/* @media only screen and (max-width: 540px) - Mobile phones */
-@media only screen and (max-width: 540px) {
-    .wrapper {
-        padding-inline: 4vw; /* Smallest padding */
+@media only screen and (max-width: 768px) {
+    :root {
+        --nav-height: 70px;
+        --section-padding: 60px;
     }
-    .featured-name, /* Original has 40px, which is ~2.5rem if base is 16px */
-    :root[data-theme="dark"] .featured-name {
-        font-size: 1.8rem !important; /* Further reduce hero heading */
+    
+    h1, .featured-name {
+        font-size: 2.5rem;
     }
-    h1 { font-size: 1.8rem !important; }
-    h2 { font-size: 1.5rem !important; }
-    h3 { font-size: 1.3rem !important; }
-
-    body,
-    p,
-    .featured-text-info p,
-    .about-info p,
-    .project-box label,
-    .contact-info p,
-    .footer_menu_list a,
-    .bottom-footer p,
-    .top-header span {
-        font-size: 0.9rem;
-        line-height: 1.6; /* Adjust line height for smaller fonts */
+    
+    h2 {
+        font-size: 2rem;
     }
-    /* Ensure dark theme text also gets this font size if not inheriting correctly */
-     :root[data-theme="dark"] body,
-     :root[data-theme="dark"] p,
-    :root[data-theme="dark"] .featured-text-info p,
-    :root[data-theme="dark"] .about-info p,
-    :root[data-theme="dark"] .project-box label,
-    :root[data-theme="dark"] .contact-info p,
-    :root[data-theme="dark"] .footer_menu_list a,
-    :root[data-theme="dark"] .bottom-footer p,
-    :root[data-theme="dark"] .top-header span {
-        font-size: 0.9rem !important;
-        line-height: 1.6 !important;
+    
+    .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--nav-height));
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 2rem;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
-
-
-    .section {
-        padding-block: 3em; /* Reduce section padding */
+    
+    .nav-menu.responsive {
+        left: 0;
     }
-
-    .about-info,
-    .skills-box,
-    .project-box, /* Original has width: 100% */
-    .contact-info {
-        padding: 1rem; /* Reduce card padding further */
-    }
-    .project-box {
-        width: 100%; /* Ensure it takes full width, overriding the calc from 900px */
-    }
-
-
-    .social_icons {
-        gap: 20px; /* Reduce gap for social icons */
-        justify-content: center; /* Center icons if they stack or wrap */
-    }
-    .social_icons .icon {
-        width: 35px; /* Smaller icons */
-        height: 35px;
-    }
-    .social_icons .icon i {
-        font-size: 14px; /* Smaller icon font */
-    }
-
-    .featured-text-btn {
-        flex-direction: column; /* Stack buttons in hero section */
-        align-items: center; /* Center stacked buttons */
-    }
-    .featured-text-btn .btn {
-        width: 80%; /* Make buttons wider for easier tapping */
-        text-align: center;
-    }
-
-    /* Footer menu items could stack if needed */
-    .middle-footer .footer-menu {
+    
+    .nav_menu_list {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 2rem;
     }
-    .footer_menu_list a {
-        margin-inline: 5px; /* Reduce margin for stacked items */
+    
+    .nav-menu-btn {
+        display: block;
     }
-    .top-footer p { /* Name in footer */
-        font-size: 1.5rem; /* Reduce font size */
+    
+    .row {
+        grid-template-columns: 1fr;
     }
-
-    /* Resume page specific responsive adjustments */
-    .resume-page {
-        padding: 1rem; /* Reduce padding on mobile */
+    
+    .project-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    .resume-page h1 { font-size: 2rem; }
-    .resume-page h2 { font-size: 1.7rem; }
-    .resume-page h3 { font-size: 1.4rem; }
-    .resume-page h4 { font-size: 1.1rem; }
+    
+    .form-inputs {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* Accessibility: Ensure interactive elements are large enough on touch devices */
-/* This is partially handled by .featured-text-btn .btn width adjustment above. */
-/* General buttons (.btn) have padding 12px 20px, which should be decent. */
+@media only screen and (max-width: 480px) {
+    :root {
+        --section-padding: 50px;
+    }
+    
+    h1, .featured-name {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    .image, .image img {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .featured-text-btn {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .featured-text-btn .btn {
+        width: 100%;
+    }
+    
+    .top-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .footer-menu {
+        gap: 1rem;
+    }
+}
+
+/* Animation for ScrollReveal */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+} 
