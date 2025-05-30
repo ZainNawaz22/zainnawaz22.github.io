@@ -33,9 +33,9 @@ function myMenuFunction(){
 
 /* ----- TYPING EFFECT ----- */
  var typingEffect = new Typed(".typedText",{
-    strings : ["Student","C++ Developer"],
+    strings : ["AI Engineer", "Interactive Media Developer"],
     loop : true,
-    typeSpeed : 100, 
+    typeSpeed : 100,
     backSpeed : 80,
     backDelay : 2000
  })
@@ -46,7 +46,7 @@ function myMenuFunction(){
         origin: 'top',
         distance: '80px',
         duration: 2000,
-        reset: true     
+        reset: true
  })
 
 /* -- HOME -- */
@@ -102,7 +102,7 @@ function scrollActive() {
         sectionTop = current.offsetTop - 50,
       sectionId = current.getAttribute('id')
 
-    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
+    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
 
         document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
 
@@ -113,38 +113,3 @@ function scrollActive() {
     }
   })
 }
-
-fetch('https://api.github.com/users/zainnawaz22/repos')
-    .then(response => response.json())
-    .then(data => {
-        const projectContainer = document.querySelector('.project-container');
-        data.forEach(repo => {
-            const projectBox = document.createElement('div');
-            projectBox.classList.add('project-box');
-            projectBox.innerHTML = `
-                <h3>${repo.name}</h3>
-            `;
-            projectBox.addEventListener('click', () => {
-               window.open(repo.html_url, '_blank')
-            });
-            projectContainer.appendChild(projectBox);
-        });
-    });
-
-// Theme Switch Logic
-const themeToggle = document.getElementById('theme-toggle');
-const root = document.documentElement;
-
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme') || 'light';
-root.setAttribute('data-theme', savedTheme);
-themeToggle.checked = savedTheme === 'dark';
-
-// Theme switch handler
-themeToggle.addEventListener('change', function() {
-    const theme = this.checked ? 'dark' : 'light';
-    root.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-});
-
-window.addEventListener('scroll', scrollActive)

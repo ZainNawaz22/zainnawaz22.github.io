@@ -311,11 +311,11 @@ nav{
     .featured-name {
         font-size: 2rem;
     }
-    
+
     .featured-text-info p {
         font-size: 1rem;
     }
-    
+
     .featured-text-card span {
         font-size: 1rem;
         padding: 6px 12px;
@@ -553,7 +553,7 @@ h3{
     border: 1px solid #ddd;
     padding: 20px;
     margin: 10px;
-    
+
 
 }
 .project-box h3 {
@@ -646,7 +646,7 @@ footer{
 }
 .footer-social-icons{
     display: flex;
-    gap: 30px;   
+    gap: 30px;
 }
 .bottom-footer{
     font-size: 14px;
@@ -860,7 +860,7 @@ footer{
 
 
 
-body, 
+body,
 .about-info,
 .contact-info,
 .project-box,
@@ -1523,3 +1523,106 @@ textarea:focus {
 /* Accessibility: Ensure interactive elements are large enough on touch devices */
 /* This is partially handled by .featured-text-btn .btn width adjustment above. */
 /* General buttons (.btn) have padding 12px 20px, which should be decent. */
+/* Enhancements for Manually Added Projects */
+.project-box .project-image {
+    width: 100%;
+    max-height: 200px; /* Limit image height */
+    object-fit: cover; /* Cover the area, might crop */
+    border-radius: 10px 10px 0 0; /* Rounded top corners if image is at the very top */
+    margin-bottom: 15px;
+    border: 1px solid var(--card-border-color-dark, #334155); /* Add a subtle border */
+}
+
+.project-box h3 { /* This selector was already in portfolio.css, ensure it is specific enough or styles are merged */
+    margin-top: 0; /* Adjust if image is present */
+    font-size: 1.5rem !important; /* Ensure consistent project title size */
+    margin-bottom: 10px; /* Add some space below title */
+}
+
+/* Ensure dark theme project box h3 color is white if not already covered by general h3 styling */
+:root[data-theme="dark"] .project-box h3 {
+    color: #FFFFFF !important;
+}
+
+
+.project-box .project-desc,
+.project-box .project-tech,
+.project-box .project-results {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Ensure text color for project details is correct in both themes */
+.project-box .project-desc, .project-box .project-tech, .project-box .project-results {
+    color: var(--text-color-second); /* Default text color from variables */
+}
+:root[data-theme="dark"] .project-box .project-desc,
+:root[data-theme="dark"] .project-box .project-tech,
+:root[data-theme="dark"] .project-box .project-results {
+    color: var(--text-color-body-dark, #D1D5DB) !important;
+}
+
+
+.project-box .project-links {
+    margin-top: auto; /* Push links to the bottom of the card */
+    padding-top: 15px; /* Add some space above the links */
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Allow buttons to wrap on small cards if needed */
+}
+
+.project-box .btn.small-btn {
+    padding: 6px 12px; /* Slightly smaller padding */
+    font-size: 0.8rem; /* Smaller font for small buttons */
+}
+
+.project-box .btn.disabled-link {
+    background-color: #e0e0e0 !important;
+    color: #757575 !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+:root[data-theme="dark"] .project-box .btn.disabled-link {
+    background-color: var(--card-border-color-dark, #334155) !important;
+    color: var(--text-color-body-dark, #D1D5DB) !important;
+    opacity: 0.6;
+}
+/* Enhancements for Detailed Skills List */
+.skills-list.detailed-skills {
+    list-style-type: none; /* Remove default bullets if any */
+    padding-left: 0; /* Remove default padding */
+}
+
+.skills-list.detailed-skills li {
+    margin-bottom: 8px; /* Space between skill items */
+    line-height: 1.6;
+}
+
+.skills-list.detailed-skills li strong {
+    /* color: var(--first-color); Replaced by theme specific below */
+    margin-right: 5px;
+    display: block; /* Make strong tags take full width for category labels */
+    margin-bottom: 4px; /* Space after category label */
+}
+
+:root[data-theme="light"] .skills-list.detailed-skills li strong {
+    color: var(--first-color, #3b82f6);
+}
+:root[data-theme="dark"] .skills-list.detailed-skills li strong {
+    color: var(--first-color, #3b82f6);
+}
+
+/* Ensure skills text color is appropriate */
+:root[data-theme="light"] .skills-list.detailed-skills li {
+    color: var(--text-color-second); /* From original variables, should be darkish grey */
+}
+:root[data-theme="dark"] .skills-list.detailed-skills li {
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+
+.skills-box .skills-header h3 {
+    font-size: 1.5rem !important; /* Consistent heading size for skills categories */
+    margin-bottom: 20px; /* More space below skill category heading */
+}
