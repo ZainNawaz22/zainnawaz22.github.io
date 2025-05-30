@@ -1,5 +1,5 @@
-/* ----- POPPINS FONT Link ----- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* ----- INTER FONT Link ----- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* ----- VARIABLES ----- */
 :root{
@@ -7,12 +7,12 @@
     --color-white: rgb(255, 255, 255);
 
     --text-color-second: rgb(68, 68, 68);
-    --text-color-third: rgb(30, 159, 171);
+    --text-color-third: #06b6d4;
 
-    --first-color: rgb(110, 87, 224);
+    --first-color: #3b82f6;
     --first-color-hover: rgb(40, 91, 212);
 
-    --second-color: rgb(0, 200, 255);
+    --second-color: #06b6d4;
     --third-color: rgb(209, 147, 40);
     --first-shadow-color: rgba(0, 0, 0, 0.1);
 
@@ -23,7 +23,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 /* ----- SMOOTH SCROLL ----- */
@@ -76,6 +76,7 @@ i{
 /* ------- BASE -------- */
 body{
     background: var(--body-color);
+    line-height: 1.7;
     transition: all 0.3s ease-in-out;
 }
 .container{
@@ -768,11 +769,16 @@ footer{
 
 /* Dark Mode Variables */
 :root[data-theme="dark"] {
-    --body-color: #1a1a1a;
+    --card-bg-dark: #1e293b;
+    --card-border-color-dark: #334155;
+    --body-color: #0f172a;
     --color-white: #1a1a1a;
-    --text-color-second: #f0f0f0;
-    --text-color-third: #4dbed3;
+    --text-color-second: #FFFFFF;
+    --text-color-third: #06b6d4;
     --first-shadow-color: rgba(255, 255, 255, 0.1);
+    --first-color: #3b82f6;
+    --second-color: #06b6d4;
+    --text-color-body-dark: #D1D5DB;
 }
 
 /* Theme Switch Styles */
@@ -870,3 +876,650 @@ textarea {
 .featured-text-info p {
     transition: color 0.3s ease-in-out;
 }
+
+/* Styles migrated from css/master.css */
+hr {
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+/* this controls how the bullet points in the resume page looks */
+ul {
+  display: table;
+  margin: 0 auto;
+  text-align: left;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+h2 {
+  /* Default margins, color is handled by theme or specific components */
+  margin-bottom: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+h4 {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+h5 {
+  margin-top: 0.5rem;
+}
+
+:root[data-theme="dark"] body {
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+
+/* Ensuring various text elements in dark mode use the new body text color */
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] .featured-text-info p,
+:root[data-theme="dark"] .about-info p,
+:root[data-theme="dark"] .project-box label,
+:root[data-theme="dark"] .contact-info p,
+:root[data-theme="dark"] .footer_menu_list a,
+:root[data-theme="dark"] .bottom-footer p,
+:root[data-theme="dark"] .top-header span {
+    color: var(--text-color-body-dark, #D1D5DB) !important;
+}
+
+/* Specific adjustments for navigation elements in dark mode */
+:root[data-theme="dark"] .nav-link {
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+:root[data-theme="dark"] .active-link {
+    color: var(--first-color, #3b82f6) !important; /* Active link should use accent */
+}
+:root[data-theme="dark"] .nav-name {
+    color: var(--text-color-third, #06b6d4); /* Or primary accent if preferred */
+}
+
+/* Font hierarchy - using !important cautiously, assuming these are global overrides */
+h1, .featured-name { font-size: 2.8rem !important; font-weight: 700 !important; }
+h2 { font-size: 2.2rem !important; font-weight: 600 !important; }
+h3 { font-size: 1.8rem !important; font-weight: 600 !important; }
+
+/* Ensure h3 in dark mode has correct color (white, as per --text-color-second) */
+:root[data-theme="dark"] h3 {
+    color: var(--text-color-second, #FFFFFF) !important;
+}
+
+
+/* Gradient for featured name */
+.featured-name {
+    background: linear-gradient(to right, var(--first-color, #3b82f6), var(--second-color, #06b6d4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--first-color, #3b82f6); /* Fallback */
+}
+
+/* Layout Modernization: Card-based Design & Spacing */
+
+/* Standardize section padding - already .section { padding-block: 5em; } - this seems fine. */
+
+/* Card base style - enhance existing */
+.about-info,
+.skills-box, /* Applying card styling to skills-box */
+.project-box,
+.contact-info {
+    padding: 2rem; /* Consistent padding within cards */
+    transition: all 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease; /* Added transform and box-shadow to default transition */
+}
+
+/* Card background and borders in dark theme */
+:root[data-theme="dark"] .about-info,
+:root[data-theme="dark"] .skills-box,
+:root[data-theme="dark"] .project-box,
+:root[data-theme="dark"] .contact-info {
+    background-color: var(--card-bg-dark, #1e293b);
+    border: 1px solid var(--card-border-color-dark, #334155);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Subtle shadow for dark theme */
+}
+
+/* Ensure .skills-box fills its column and has some margin if multiple skill categories are stacked */
+.skills-box {
+    width: 100%; /* Ensure it takes full width of its .col container */
+    margin-bottom: 20px; /* Space between multiple skill boxes if they are stacked in the same column */
+}
+.skills-box:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Project container: Ensure good spacing for wrapped items */
+.project-container {
+    gap: 30px; /* Increase gap for better spacing between project cards */
+}
+/* Adjust project-box width for responsiveness if needed, current 30% or 33.33% might be okay for 3-column */
+/* On smaller screens (max-width: 900px), it becomes 33.33% */
+/* On even smaller (max-width: 540px), it becomes 100% */
+
+/* General spacing improvements */
+/* Ensure .row has enough gap, already 50px, which is good */
+/* Ensure .col has space if they were to stack vertically on smaller screens (handled by flex-direction: column in media queries) */
+
+/* Visual Section background variations (other than cards) */
+/* The main body is already #0f172a. Cards are #1e293b. */
+/* We can consider a slightly different background for the footer or header if needed, but let's keep it simple for now. */
+:root[data-theme="dark"] nav {
+    background: rgba(15, 23, 42, 0.8); /* Dark navy with some transparency for glassmorphism */
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); /* Adjusted shadow for dark bg */
+}
+
+:root[data-theme="dark"] footer {
+    background: #0a101f; /* Slightly darker/different navy for footer */
+}
+
+/* --- Interactive Elements & Visual Enhancements --- */
+
+/* Standard Hover Effects for Links (already partially covered by nav-link, but ensure general 'a' tags too) */
+a {
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for potential subtle movements */
+}
+
+:root[data-theme="dark"] a {
+    color: var(--text-color-third, #06b6d4); /* Default link color in dark mode */
+}
+
+:root[data-theme="dark"] a:hover,
+:root[data-theme="dark"] .nav-link:hover, /* Already has color transition */
+:root[data-theme="dark"] .footer_menu_list a:hover {
+    color: var(--first-color, #3b82f6); /* Hover color to primary accent */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+/* Button Enhancements */
+.btn {
+    /* Base transition is already .4s, let's make it 0.3s to match others */
+    transition: all 0.3s ease; /* Standardize transition */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for buttons */
+    border: 1px solid transparent; /* Prepare for border on hover/focus */
+}
+
+.btn:hover, .btn:focus {
+    transform: translateY(-3px) scale(1.05); /* Lift and scale effect */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+    /* Default hover background is var(--second-color), color var(--color-white) - this is fine */
+}
+
+/* Dark theme button specific adjustments if needed */
+:root[data-theme="dark"] .btn {
+    background: var(--first-color, #3b82f6); /* Primary accent for buttons in dark mode */
+    color: #FFFFFF; /* White text on accent buttons */
+    border: 1px solid var(--first-color, #3b82f6);
+}
+
+:root[data-theme="dark"] .btn:hover,
+:root[data-theme="dark"] .btn:focus {
+    background: var(--second-color, #06b6d4); /* Secondary accent on hover */
+    border-color: var(--second-color, #06b6d4);
+    color: #FFFFFF;
+}
+
+/* Special button: .featured-text-btn>.blue-btn (already uses --first-color) */
+/* No specific changes needed if above .btn styles are sufficient */
+
+/* Social Media Icons Hover Effects */
+.social_icons .icon {
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    border-radius: 50%; /* Ensure it's a circle for background effect */
+    background-color: transparent; /* Explicitly set transparent background */
+}
+
+.social_icons .icon:hover {
+    transform: scale(1.2);
+    /* color: var(--first-color); Is already defined */
+    background-color: rgba(59, 130, 246, 0.1); /* Subtle background matching primary accent on hover */
+}
+:root[data-theme="dark"] .social_icons .icon {
+    box-shadow: 0px 2px 5px 0px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+}
+:root[data-theme="dark"] .social_icons .icon:hover {
+    color: var(--first-color, #3b82f6);
+    background-color: rgba(59, 130, 246, 0.15); /* Slightly more visible background on hover in dark mode */
+}
+
+
+/* Card Hover Effects (Project cards, About card, etc.) */
+.project-box:hover,
+.about-info:hover,
+.skills-box:hover,
+.contact-info:hover {
+    transform: translateY(-5px) scale(1.02); /* Lift and slightly scale card */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* More pronounced shadow */
+}
+
+/* Dark theme card hover adjustments */
+:root[data-theme="dark"] .project-box:hover,
+:root[data-theme="dark"] .about-info:hover,
+:root[data-theme="dark"] .skills-box:hover,
+:root[data-theme="dark"] .contact-info:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Shadow might need to be darker or use a very subtle light glow */
+    border-color: var(--first-color, #3b82f6); /* Accent border on hover */
+}
+
+
+/* --- Visual Enhancements --- */
+
+/* Glassmorphism for Nav Bar (already applied in previous step for dark theme) */
+/* Let's ensure light theme also has a slightly blurred background for consistency if desired, or keep it solid */
+nav { /* General nav styles */
+    /* position: fixed; display: flex; ... existing styles */
+    /* background: var(--body-color); Default background */
+    /* Adding a subtle shadow for light mode too */
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+:root[data-theme="light"] nav { /* If we want glassmorphism for light theme too */
+    background: rgba(250, 250, 250, 0.85); /* Slightly transparent version of light body color */
+    -webkit-backdrop-filter: blur(8px); /* Safari */
+    backdrop-filter: blur(8px);
+}
+
+
+/* Input Fields and Textarea Styling */
+.input-field,
+textarea {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #CCC; /* Lighter border for light mode */
+    border-radius: 8px; /* Slightly more rounded */
+    padding: 12px 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus,
+textarea:focus {
+    border-color: var(--first-color, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Focus ring with accent color */
+    outline: none;
+}
+
+:root[data-theme="dark"] .input-field,
+:root[data-theme="dark"] textarea {
+    background: rgba(30, 41, 59, 0.7); /* Dark input background, from --card-bg-dark with transparency */
+    border-color: var(--card-border-color-dark, #334155);
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+
+:root[data-theme="dark"] .input-field:focus,
+:root[data-theme="dark"] textarea:focus {
+    border-color: var(--first-color, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Focus ring for dark mode */
+}
+
+
+/* Subtle box-shadows and borders are applied above to cards, buttons, inputs */
+
+/* (Optional) 3D transform effects on key elements (e.g., project cards on hover) */
+/* Add to .project-box:hover if desired */
+/* transform: translateY(-5px) scale(1.02) perspective(1000px) rotateY(3deg); */
+/* This can be combined with the existing transform or be a separate, more specific hover effect */
+
+/* Floating particle animations - This is complex for pure CSS and might be better as a stretch goal with JS. */
+/* For now, we will not implement CSS particle animations. */
+
+/* --- Styles for Resume Page (resume.html) --- */
+
+/* Apply dark theme by default if data-theme is not set, or specific styles for .resume-page */
+/* For simplicity, we assume the dark theme is default or activated. */
+/* These styles will apply when .resume-page class is present on the body */
+
+.resume-page {
+    background-color: var(--body-color); /* Use body-color which respects theme */
+    color: var(--text-color-second); /* Use text-color-second for default text, respects theme */
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7;
+    padding: 2rem; /* Add some padding to the resume page */
+    text-align: left; /* Override general text-align: center from old master.css if any lingered */
+}
+
+/* Ensure dark theme variables are used if theme is dark */
+:root[data-theme="dark"] .resume-page {
+    background-color: var(--body-color, #0f172a); /* Dark navy background */
+    color: var(--text-color-body-dark, #D1D5DB); /* Light gray text */
+}
+
+
+.resume-page h1,
+.resume-page h2,
+.resume-page h3,
+.resume-page h4,
+.resume-page h5 {
+    color: var(--text-color-second); /* Default heading color */
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+:root[data-theme="dark"] .resume-page h1,
+:root[data-theme="dark"] .resume-page h2,
+:root[data-theme="dark"] .resume-page h3,
+:root[data-theme="dark"] .resume-page h4,
+:root[data-theme="dark"] .resume-page h5 {
+    color: #FFFFFF; /* White headings in dark mode */
+}
+
+
+.resume-page h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--first-color, #3b82f6); /* Accent color border */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.resume-page h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.resume-page h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.resume-page h4 { /* Typically job titles or section sub-sub-headings */
+    font-size: 1.2rem;
+    font-weight: 500; /* Normal or semi-bold for emphasis */
+    color: var(--text-color-third); /* Accent color for these titles */
+}
+:root[data-theme="dark"] .resume-page h4 {
+     color: var(--text-color-third, #06b6d4);
+}
+
+
+.resume-page p {
+    color: var(--text-color-second); /* Default paragraph color */
+    margin-bottom: 0.5rem;
+}
+:root[data-theme="dark"] .resume-page p {
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+
+.resume-page a {
+    color: var(--first-color); /* Links with primary accent */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+:root[data-theme="dark"] .resume-page a {
+    color: var(--text-color-third, #06b6d4); /* Links with cyan in dark mode */
+}
+
+.resume-page a:hover {
+    color: var(--second-color); /* Links hover to secondary accent */
+    text-decoration: underline;
+}
+:root[data-theme="dark"] .resume-page a:hover {
+    color: var(--first-color, #3b82f6); /* Links hover to primary accent in dark mode */
+}
+
+.resume-page hr {
+    border: none;
+    border-top: 1px solid var(--first-shadow-color); /* Subtle horizontal line */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+:root[data-theme="dark"] .resume-page hr {
+    border-top: 1px solid var(--card-border-color-dark, #334155);
+}
+
+.resume-page ul {
+    list-style-type: disc; /* Standard bullets */
+    padding-left: 20px; /* Indent list */
+    margin-bottom: 1rem;
+}
+
+.resume-page ul li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color-second); /* Default list item color */
+}
+:root[data-theme="dark"] .resume-page ul li {
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+
+/* Footer styling for resume page if it has one, ensure it matches */
+.resume-page footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--first-shadow-color);
+    text-align: center;
+    color: var(--text-color-second);
+}
+:root[data-theme="dark"] .resume-page footer {
+    border-top: 1px solid var(--card-border-color-dark, #334155);
+    color: var(--text-color-body-dark, #D1D5DB);
+}
+
+
+.resume-page footer a {
+    color: var(--first-color);
+}
+:root[data-theme="dark"] .resume-page footer a {
+    color: var(--text-color-third, #06b6d4);
+}
+
+.resume-page footer a:hover {
+    color: var(--second-color);
+}
+:root[data-theme="dark"] .resume-page footer a:hover {
+    color: var(--first-color, #3b82f6);
+}
+
+/* Hide theme switcher and nav-menu-btn if they were part of a shared header not intended for resume */
+/* These selectors assume resume.html might re-use the main site's <nav id="header"> */
+/* If resume.html has its own simple header or no header, these rules won't cause issues. */
+.resume-page nav#header .theme-switch,
+.resume-page nav#header .nav-menu-btn,
+.resume-page nav#header .nav-button {
+    display: none !important;
+}
+/* More specific rule to hide main navigation menu list if resume page should not have it */
+.resume-page nav#header .nav-menu {
+    display: none !important;
+}
+/* If resume.html has a very simple structure, e.g. no <nav id="header">, then the above are harmless. */
+/* If it has a different header that should be visible, adjust selectors or remove these rules. */
+/* For now, assuming the goal is a very clean resume display, possibly without the main site navigation. */
+
+/* --- Responsive Design Enhancements --- */
+
+/* Base font size for REM calculations, if not already set (usually on html or body) */
+/* html { font-size: 16px; } */ /* Assuming default or already set */
+
+/* @media only screen and (max-width: 1024px) - Large tablets and small desktops */
+@media only screen and (max-width: 1024px) {
+    .wrapper {
+        padding-inline: 8vw; /* Slightly reduce padding */
+    }
+    .featured-name,
+    :root[data-theme="dark"] .featured-name { /* Ensure dark theme also picks this up */
+        font-size: 2.5rem !important; /* Adjust hero heading */
+    }
+    h1 { font-size: 2.5rem !important; }
+    h2 { font-size: 2rem !important; }
+    h3 { font-size: 1.6rem !important; }
+
+    .project-box {
+        /* width: 48%; */ /* Example if going for 2-column layout here, original is 30% or 33% */
+        /* If project-container uses gap, this needs to be calculated carefully. */
+        /* Current .project-box width at 900px is 33.33%, let's keep that structure */
+    }
+    .featured-text { /* Already adjusted padding:0 in original */
+        padding-left: 10px; /* Add a little padding back if 0 is too stark */
+        padding-right: 10px;
+    }
+
+}
+
+/* @media only screen and (max-width: 900px) - Tablets */
+@media only screen and (max-width: 900px) {
+    .wrapper {
+        padding-inline: 6vw; /* Further reduce padding */
+    }
+    .featured-name,
+    :root[data-theme="dark"] .featured-name {
+        font-size: 2.2rem !important; /* Smaller hero heading */
+    }
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    h3 { font-size: 1.5rem !important; }
+
+    /* Apply to general text elements, ensuring specificity for dark theme if needed */
+    body,
+    p,
+    .featured-text-info p, /* This was already p, but being explicit is fine */
+    .about-info p,
+    .project-box label,
+    .contact-info p,
+    .footer_menu_list a,
+    .bottom-footer p,
+    .top-header span {
+        font-size: 0.95rem;
+    }
+
+    /* Ensure dark theme text also gets this font size if not inheriting correctly */
+    :root[data-theme="dark"] body,
+    :root[data-theme="dark"] p,
+    :root[data-theme="dark"] .featured-text-info p,
+    :root[data-theme="dark"] .about-info p,
+    :root[data-theme="dark"] .project-box label,
+    :root[data-theme="dark"] .contact-info p,
+    :root[data-theme="dark"] .footer_menu_list a,
+    :root[data-theme="dark"] .bottom-footer p,
+    :root[data-theme="dark"] .top-header span {
+        font-size: 0.95rem !important; /* Using important to ensure override if base styles are too specific */
+    }
+
+
+    /* Ensure cards have appropriate padding on tablets */
+    .about-info,
+    .skills-box,
+    .project-box,
+    .contact-info {
+        padding: 1.5rem; /* Reduce card padding */
+    }
+
+    .project-box {
+         /* Original has width: 33.33%; This implies it might try to fit 3 in a row. */
+         /* For tablets, 2 in a row is often better. */
+         width: calc(50% - 15px); /* Adjust for 2 columns, considering the 30px gap in project-container */
+    }
+    .project-container {
+        justify-content: space-around; /* Better distribution for fewer items per row */
+    }
+     .featured-box {
+        min-height: auto; /* Allow featured box to shrink if content is less */
+        padding-top: 100px; /* Add padding because nav is fixed */
+        padding-bottom: 40px;
+    }
+    .featured-text {
+        min-height: auto; /* Adjust min-height */
+    }
+
+
+}
+
+/* @media only screen and (max-width: 540px) - Mobile phones */
+@media only screen and (max-width: 540px) {
+    .wrapper {
+        padding-inline: 4vw; /* Smallest padding */
+    }
+    .featured-name, /* Original has 40px, which is ~2.5rem if base is 16px */
+    :root[data-theme="dark"] .featured-name {
+        font-size: 1.8rem !important; /* Further reduce hero heading */
+    }
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.3rem !important; }
+
+    body,
+    p,
+    .featured-text-info p,
+    .about-info p,
+    .project-box label,
+    .contact-info p,
+    .footer_menu_list a,
+    .bottom-footer p,
+    .top-header span {
+        font-size: 0.9rem;
+        line-height: 1.6; /* Adjust line height for smaller fonts */
+    }
+    /* Ensure dark theme text also gets this font size if not inheriting correctly */
+     :root[data-theme="dark"] body,
+     :root[data-theme="dark"] p,
+    :root[data-theme="dark"] .featured-text-info p,
+    :root[data-theme="dark"] .about-info p,
+    :root[data-theme="dark"] .project-box label,
+    :root[data-theme="dark"] .contact-info p,
+    :root[data-theme="dark"] .footer_menu_list a,
+    :root[data-theme="dark"] .bottom-footer p,
+    :root[data-theme="dark"] .top-header span {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+    }
+
+
+    .section {
+        padding-block: 3em; /* Reduce section padding */
+    }
+
+    .about-info,
+    .skills-box,
+    .project-box, /* Original has width: 100% */
+    .contact-info {
+        padding: 1rem; /* Reduce card padding further */
+    }
+    .project-box {
+        width: 100%; /* Ensure it takes full width, overriding the calc from 900px */
+    }
+
+
+    .social_icons {
+        gap: 20px; /* Reduce gap for social icons */
+        justify-content: center; /* Center icons if they stack or wrap */
+    }
+    .social_icons .icon {
+        width: 35px; /* Smaller icons */
+        height: 35px;
+    }
+    .social_icons .icon i {
+        font-size: 14px; /* Smaller icon font */
+    }
+
+    .featured-text-btn {
+        flex-direction: column; /* Stack buttons in hero section */
+        align-items: center; /* Center stacked buttons */
+    }
+    .featured-text-btn .btn {
+        width: 80%; /* Make buttons wider for easier tapping */
+        text-align: center;
+    }
+
+    /* Footer menu items could stack if needed */
+    .middle-footer .footer-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer_menu_list a {
+        margin-inline: 5px; /* Reduce margin for stacked items */
+    }
+    .top-footer p { /* Name in footer */
+        font-size: 1.5rem; /* Reduce font size */
+    }
+
+    /* Resume page specific responsive adjustments */
+    .resume-page {
+        padding: 1rem; /* Reduce padding on mobile */
+    }
+    .resume-page h1 { font-size: 2rem; }
+    .resume-page h2 { font-size: 1.7rem; }
+    .resume-page h3 { font-size: 1.4rem; }
+    .resume-page h4 { font-size: 1.1rem; }
+}
+
+/* Accessibility: Ensure interactive elements are large enough on touch devices */
+/* This is partially handled by .featured-text-btn .btn width adjustment above. */
+/* General buttons (.btn) have padding 12px 20px, which should be decent. */
