@@ -1,361 +1,470 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/Person">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zain Nawaz - Computer Science Student Portfolio | Machine Learning and Game Development">
-    <meta name="keywords" content="Zain Nawaz, Computer Science, Machine Learning, Game Development, FAST University">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Zain Nawaz - Computer Science Student & Developer specializing in Machine Learning and Game Development. Portfolio showcasing innovative projects and technical expertise.">
+    <meta name="keywords" content="Zain Nawaz, Computer Science, Machine Learning, Game Development, FAST University, Portfolio, Developer, Student">
+    <meta name="author" content="Zain Nawaz">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zain Nawaz - Computer Science Student & Developer">
+    <meta property="og:description" content="Portfolio showcasing Machine Learning and Game Development projects by Computer Science student Zain Nawaz.">
+    <meta property="og:image" content="./images/zain.jpg">
+    <meta property="og:url" content="https://zainnawaz22.github.io">
+    <meta property="og:site_name" content="Zain Nawaz Portfolio">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zain Nawaz - Computer Science Student & Developer">
+    <meta name="twitter:description" content="Portfolio showcasing Machine Learning and Game Development projects.">
+    <meta name="twitter:image" content="./images/zain.jpg">
+    
+    <link rel="canonical" href="https://zainnawaz22.github.io">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"></noscript>
+    
+    <link rel="preload" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"></noscript>
+    
     <link rel="stylesheet" href="./portfolio.css">
     <link rel="icon" type="image/png" href="download.png">
-    <title>Portfolio|Zain Nawaz</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Zain Nawaz - Computer Science Student & Developer Portfolio</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Zain Nawaz",
+      "url": "https://zainnawaz22.github.io",
+      "image": "./images/zain.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/zainnawaz755",
+        "https://github.com/zainnawaz22",
+        "https://www.instagram.com/zainnawaz58",
+        "https://www.facebook.com/share/9883kVfxDtS2og3b/"
+      ],
+      "jobTitle": "Computer Science Student",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "FAST University"
+      },
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "National University of Computing and Emerging Sciences (FAST)"
+      },
+      "description": "Computer Science student passionate about Machine Learning and Game Development",
+      "email": "Zainnawaz755@gmail.com",
+      "telephone": "+92 348 4249809"
+    }
+    </script>
+
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Zain Nawaz Portfolio">
 </head>
+
 <body>
-   <div class="container">
-      <nav id="header">
-        <div class="nav-logo">
-            <p class="nav-name">Zain Nawaz</p>
-            <span>.</span>
+    <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+        <div class="loading-animation">
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <p>Loading Portfolio...</p>
         </div>
-        <div class="nav-menu" id="myNavMenu">
-            <ul class="nav_menu_list">
-                <li class="nav_list">
-                    <a href="#home" class="nav-link active-link">Home</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#about" class="nav-link">About</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <div class="circle"></div>
-                </li>
-                <li class="nav_list">
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <div class="circle"></div>
-                </li>
-            </ul>
-        </div>
-        <div class="theme-switch">
-            <input type="checkbox" id="theme-toggle">
-            <label for="theme-toggle" class="switch">
-                <i class="uil uil-sun"></i>
-                <i class="uil uil-moon"></i>
-            </label>
-        </div>
+    </div>
 
-        <div class="nav-button">
-            <a href="resume.pdf" target="_blank" download>
-                <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
-            </a>
-            
-            
-        </div>
-        <div class="nav-menu-btn">
-            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
-        </div>
-      </nav>
-    <main class="wrapper">
-       <section class="featured-box" id="home">
-        <div class="featured-text">
-           
-            <div class="featured-name">
-                <h1 class="featured-name">I'm <span class="typedText"></span></h1>
-            </div>
-            <div class="featured-text-info">
-<p>A forward-thinking AI Engineer and Interactive Media Developer, I thrive at the intersection of intelligent systems and engaging user experiences. My focus spans Computer Vision, where I've [mention a specific learning milestone or small project, e.g., 'developed models for X'], to crafting immersive worlds with Unity Game Development, and building robust Full-Stack Web Applications. I'm driven by a passion for solving complex problems and a commitment to continuous learning—currently exploring [mention a current learning goal or technology]. My goal is to leverage cutting-edge technology to create innovative solutions and impactful digital experiences.</p>
-            </div>
-            <div class="featured-text-btn">
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    
+    <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+    
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top" title="Scroll to top">
+        <i class="uil uil-angle-up"></i>
+    </button>
+
+    <div class="container">
+        <header>
+            <nav id="header" role="navigation" aria-label="Main navigation">
+                <div class="nav-logo">
+                    <h2 class="nav-name">Zain Nawaz</h2>
+                    <span aria-hidden="true">.</span>
+                </div>
                 
-               <a href="resume.pdf" target="_blank">
-                    <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
-                </a>
-            </div>
-            <div class="social_icons">
-                <div class="icon">
-                    <a href="https://www.instagram.com/zainnawaz58", target="_blank" >
-                        <i class="uil uil-instagram"></i>
-                    </a>   
+                <div class="nav-menu" id="myNavMenu">
+                    <ul class="nav_menu_list" role="menubar">
+                        <li class="nav_list" role="none">
+                            <a href="#home" class="nav-link active-link" role="menuitem" aria-current="page">
+                                <span>Home</span>
+                                <div class="circle" aria-hidden="true"></div>
+                            </a>
+                        </li>
+                        <li class="nav_list" role="none">
+                            <a href="#about" class="nav-link" role="menuitem">
+                                <span>About</span>
+                                <div class="circle" aria-hidden="true"></div>
+                            </a>
+                        </li>
+                        <li class="nav_list" role="none">
+                            <a href="#projects" class="nav-link" role="menuitem">
+                                <span>Projects</span>
+                                <div class="circle" aria-hidden="true"></div>
+                            </a>
+                        </li>
+                        <li class="nav_list" role="none">
+                            <a href="#contact" class="nav-link" role="menuitem">
+                                <span>Contact</span>
+                                <div class="circle" aria-hidden="true"></div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="icon">
-                    
-                    <a href="https://www.linkedin.com/in/zainnawaz755", target="_blank" >
-                    <i class="uil uil-linkedin-alt"></i>
-                </div>
-
-                <div class="icon">
-                    <a href="https://www.facebook.com/share/9883kVfxDtS2og3b/?mibextid=qi2Omg", target="_blank">
-                        <i class="uil uil-facebook-f"></i>
+                
+                <div class="nav-button">
+                    <a href="https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Download CV (opens in new tab)">
+                        <button class="btn" type="button">
+                            <span>Download CV</span> 
+                            <i class="uil uil-file-alt" aria-hidden="true"></i>
+                        </button>
                     </a>
                 </div>
                 
-                <div class="icon">
-                    <a href="https://github.com/zainnawaz22" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="uil uil-github-alt"></i>
-                    </a>
-                </div>
-            </div>
-          </div>
-          <div class="featured-image">
-            <div class="image">
-                         <img src="images/zain.jpg" alt="Zain Nawaz" loading="lazy" width="300" height="300">
-            </div>
-          </div>
-         
+                <button class="nav-menu-btn" 
+                        id="navMenuBtn"
+                        aria-expanded="false" 
+                        aria-controls="myNavMenu" 
+                        aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </nav>
+        </header>
 
-       </section>
-       <section class="section" id="about">
-          <div class="top-header">
-            <h1>About Me</h1>
-          </div>
-          <div class="row">
-            <div class="col">
-                <div class="about-info">
-                    <h3 style="text-align: justify;">My Introduction</h3>
-<div class="about-details" style="text-align: justify;">
-    <div class="about-stats" style="text-align: left;">
-        <p><strong>Name:</strong> Zain Nawaz</p>
-        <p><strong>Role:</strong> AI Engineer & Interactive Media Developer</p>
-        <p><strong>Education:</strong> FAST NUCES, Computer Science (Expected 2026)</p>
-    </div>
-    <p class="about-bio">
-        As an aspiring AI Engineer and Interactive Media Developer, I'm passionate about creating intelligent, immersive, and impactful digital solutions. My journey through Computer Science at FAST NUCES is fueled by a fascination with machine learning's potential to solve real-world problems and game development's power to create engaging experiences. I'm constantly exploring new technologies, with current interests in Computer Vision, advanced Unity techniques, and scalable Full-Stack architectures. Through projects like [mention 1-2 key project types, e.g., 'developing image recognition models' or 'building interactive game prototypes'], I aim to blend analytical rigor with creative design. I'm eager to contribute to innovative projects and collaborate with teams pushing the boundaries of technology.
-    </p>
-    <div class="specializations">
-        <span class="specialty-tag">Computer Vision</span>
-        <span class="specialty-tag">Unity Development</span>
-        <span class="specialty-tag">Full-Stack Web</span>
-        <span class="specialty-tag">Machine Learning</span>
-        <span class="specialty-tag">Game Development</span>
-    </div>
-</div>
-                    <div class="about-btn">
-                        <a href="resume.pdf" target="_blank" download>
-                            <button class="btn">Download CV <i class="uil uil-download-alt"></i></button>
+        <main class="wrapper">
+            <section class="featured-box" id="home" aria-labelledby="home-heading">
+                <div class="featured-text">
+                    <div class="featured-name">
+                        <h1 id="home-heading">I'm <span class="typedText" aria-live="polite"></span></h1>
+                    </div>
+                    <div class="featured-text-info">
+                        <p>Hi! I'm a Computer Science student from the National University of Computing and Emerging Sciences (FAST), batch of 2022. My passion lies in the exciting worlds of Machine Learning and Game Development!
+                            This website serves as my digital playground, where I'll be showcasing my projects, learnings, and explorations in these fields.
+                        </p>
+                    </div>
+                    <div class="featured-text-btn">
+                        <a href="https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           aria-label="Download CV (opens in new tab)">
+                            <button class="btn" type="button">
+                                <span>Download CV</span> 
+                                <i class="uil uil-file-alt" aria-hidden="true"></i>
+                            </button>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="col">
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Technical Skills</h3>
-        </div>
-        <ul class="skills-list detailed-skills">
-            <li><strong>Languages:</strong> Python (Advanced), JavaScript (Intermediate), C++ (Intermediate), Java (Intermediate), HTML5 (Proficient), CSS3 (Proficient), SQL (Intermediate)</li>
-        </ul>
-    </div>
-
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Frameworks & Tools</h3>
-        </div>
-        <ul class="skills-list detailed-skills">
-            <li><strong>Machine Learning:</strong> TensorFlow, Keras, PyTorch, Scikit-learn, Pandas, NumPy</li>
-            <li><strong>Game Development:</strong> Unity Engine, Blender, C#</li>
-            <li><strong>Web Development:</strong> React, Node.js, Express.js, Flask, Django (Basic), RESTful APIs</li>
-            <li><strong>Databases:</strong> MongoDB, PostgreSQL, MySQL</li>
-            <li><strong>Version Control:</strong> Git, GitHub</li>
-            <li><strong>Cloud & DevOps:</strong> Docker (Basic), AWS (EC2, S3 - Basic)</li>
-            <li><strong>Other Tools:</strong> VS Code, Jupyter Notebooks, Postman</li>
-        </ul>
-    </div>
-
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Soft Skills</h3>
-        </div>
-        <ul class="skills-list detailed-skills">
-            <li>Problem-Solving</li>
-            <li>Teamwork & Collaboration</li>
-            <li>Communication (Written & Verbal)</li>
-            <li>Adaptability & Quick Learning</li>
-            <li>Creativity & Innovation</li>
-            <li>Leadership (e.g., [Mention a specific instance if possible])</li>
-        </ul>
-    </div>
-
-    <div class="skills-box">
-        <div class="skills-header">
-            <h3>Certifications & Courses</h3>
-        </div>
-        <ul class="skills-list detailed-skills">
-            <li>[Name of Certification/Course] - [Issuing Body, Year]</li>
-            <li>[Another Online Course] - [Platform, Year]</li>
-            <li>DeepLearning.AI TensorFlow Developer Professional Certificate (Coursera, Placeholder)</li>
-            <li>Unity Certified User: Programmer (Unity Technologies, Placeholder)</li>
-        </ul>
-    </div>
-</div>
-          </div>
-       </section>
-
-       <section class="section" id="projects">
-        <div class="top-header">
-            <h1>My Projects</h1>
-        </div>
-        <div class="project-container">
-<div class="project-box">
-    <img src="images/ml_image_classification.jpg" alt="Image Classification System" class="project-image">
-    <h3>Image Classification System</h3>
-    <p class="project-desc"><strong>Problem:</strong> Accurately classify images into predefined categories. <strong>Solution:</strong> Developed a deep learning model using Convolutional Neural Networks (CNNs).</p>
-    <p class="project-tech"><strong>Technologies:</strong> Python, TensorFlow, Keras, OpenCV, Scikit-learn</p>
-    <p class="project-results"><strong>Results:</strong> Achieved 92% accuracy on a custom dataset of 10,000 images. Model deployed via a Flask API.</p>
-    <div class="project-links">
-        <a href="https://github.com/zainnawaz22/image-classifier" target="_blank" class="btn small-btn">GitHub</a>
-        <a href="#" target="_blank" class="btn small-btn disabled-link">Live Demo</a>
-    </div>
-</div>
-
-<div class="project-box">
-    <img src="images/game_3d_adventure.jpg" alt="3D Adventure Game" class="project-image">
-    <h3>Lost Relics: A 3D Adventure</h3>
-    <p class="project-desc"><strong>Problem:</strong> Create an engaging 3D adventure game with puzzle elements. <strong>Solution:</strong> Designed and developed a multi-level game with custom assets and narrative.</p>
-    <p class="project-tech"><strong>Technologies:</strong> Unity (2021.3 LTS), C#, Blender (for 3D modeling), Photoshop</p>
-    <p class="project-results"><strong>Features:</strong> 5 unique levels, inventory system, dialogue mechanics, basic enemy AI. Positive feedback from beta testers.</p>
-    <div class="project-links">
-        <a href="https://github.com/zainnawaz22/lost-relics-game" target="_blank" class="btn small-btn">GitHub</a>
-        <a href="https://zainnawaz22.itch.io/lost-relics" target="_blank" class="btn small-btn">Play on Itch.io</a>
-    </div>
-</div>
-
-<div class="project-box">
-    <img src="images/web_full_stack_app.jpg" alt="Full-Stack E-commerce Platform" class="project-image">
-    <h3>Artisan Marketplace (Web App)</h3>
-    <p class="project-desc"><strong>Problem:</strong> Develop a platform for artisans to sell handmade goods. <strong>Solution:</strong> Built a full-stack e-commerce application with user authentication, product listings, and Stripe integration.</p>
-    <p class="project-tech"><strong>Technologies:</strong> React, Node.js, Express, MongoDB, Stripe API, JWT</p>
-    <p class="project-results"><strong>Outcome:</strong> Successfully deployed, supporting multiple vendors and secure transactions. Processed X test orders.</p>
-    <div class="project-links">
-        <a href="https://github.com/zainnawaz22/artisan-marketplace" target="_blank" class="btn small-btn">GitHub</a>
-        <a href="#" target="_blank" class="btn small-btn disabled-link">Live Demo</a>
-    </div>
-</div>
-
-<div class="project-box">
-    <img src="images/ml_predictive_dashboard.jpg" alt="Predictive Analytics Dashboard" class="project-image">
-    <h3>Sales Predictive Analytics Dashboard</h3>
-    <p class="project-desc"><strong>Problem:</strong> Forecast future sales trends based on historical data. <strong>Solution:</strong> Implemented a time-series forecasting model (ARIMA) and visualized results on an interactive dashboard.</p>
-    <p class="project-tech"><strong>Technologies:</strong> Python, Pandas, NumPy, Scikit-learn, Plotly Dash, Flask</p>
-    <p class="project-results"><strong>Impact:</strong> Provided insights into potential sales growth, with a Mean Absolute Percentage Error (MAPE) of X%.</p>
-    <div class="project-links">
-        <a href="https://github.com/zainnawaz22/sales-dashboard" target="_blank" class="btn small-btn">GitHub</a>
-        <a href="#" target="_blank" class="btn small-btn disabled-link">View Dashboard</a>
-    </div>
-</div>
-
-<div class="project-box">
-    <img src="images/game_mobile_puzzle.jpg" alt="Mobile Puzzle Game" class="project-image">
-    <h3>Logic Leap (Mobile Game)</h3>
-    <p class="project-desc"><strong>Problem:</strong> Design a challenging yet fun mobile puzzle game. <strong>Solution:</strong> Created an original puzzle mechanic with over 50 levels, focusing on intuitive touch controls.</p>
-    <p class="project-tech"><strong>Technologies:</strong> Unity (C#), AdMob (for ads), LeanTween (for animations)</p>
-    <p class="project-results"><strong>Metrics:</strong> X downloads during soft launch, average user rating of 4.5 stars.</p>
-    <div class="project-links">
-        <a href="https://github.com/zainnawaz22/logic-leap" target="_blank" class="btn small-btn">GitHub</a>
-        <a href="#" target="_blank" class="btn small-btn disabled-link">Google Play (Soon)</a>
-    </div>
-</div>
-
-<div class="project-box">
-    <img src="images/web_api_dev.jpg" alt="Recipe Sharing API" class="project-image">
-    <h3>Recipe Share API</h3>
-    <p class="project-desc"><strong>Problem:</strong> Create a backend API for a recipe sharing application. <strong>Solution:</strong> Designed and implemented a RESTful API with CRUD operations for recipes, users, and ratings.</p>
-    <p class="project-tech"><strong>Technologies:</strong> Node.js, Express, PostgreSQL, Docker, Postman (for testing)</p>
-    <p class="project-results"><strong>Functionality:</strong> Supports X endpoints, includes authentication and data validation. Documented with Swagger/OpenAPI.</p>
-    <div class="project-links">
-        <a href="https://github.com/zainnawaz22/recipe-api" target="_blank" class="btn small-btn">GitHub</a>
-        <a href="#" target="_blank" class="btn small-btn disabled-link">API Docs</a>
-    </div>
-</div>
-        </div>
-        </section>
-       
-       <section class="section" id="contact">
-          <div class="top-header">
-            <h1>Get in touch</h1>
-            <span>Do you have a project to do, contact me here</span>
-          </div>
-          <div class="row">
-             <div class="col">
-                <div class="contact-info">
-                    <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                    <p><i class="uil uil-envelope"></i> Email: Zainnawaz755@gmail.com</p>
-                    <p><i class="uil uil-phone"></i> Phone No: +92 348 4249809</p>
-                </div>
-             </div>
-             <div class="col">
-                <div class="form-control">
-                    <div class="form-inputs">
-                        <input type="text" class="input-field" placeholder="Name">
-                        <input type="text" class="input-field" placeholder="Email">
-                    </div>
-                    <div class="text-area">
-                        <textarea placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-button">
-                        <button class="btn">Send <i class="uil uil-message"></i></button>
+                    <div class="social_icons" role="list" aria-label="Social media links">
+                        <div class="icon" role="listitem">
+                            <a href="https://www.instagram.com/zainnawaz58" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Follow me on Instagram (opens in new tab)">
+                                <i class="uil uil-instagram" aria-hidden="true"></i>
+                            </a>   
+                        </div>
+                        <div class="icon" role="listitem">
+                            <a href="https://www.linkedin.com/in/zainnawaz755" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Connect with me on LinkedIn (opens in new tab)">
+                                <i class="uil uil-linkedin-alt" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="icon" role="listitem">
+                            <a href="https://www.facebook.com/share/9883kVfxDtS2og3b/?mibextid=qi2Omg" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               aria-label="Follow me on Facebook (opens in new tab)">
+                                <i class="uil uil-facebook-f" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="icon" role="listitem">
+                            <a href="https://github.com/zainnawaz22" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               aria-label="View my GitHub profile (opens in new tab)">
+                                <i class="uil uil-github-alt" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-             </div>
-          </div>
-       </section>
+                <aside class="featured-image">
+                    <div class="image">
+                        <img src="images/zain.jpg" 
+                             alt="Professional headshot of Zain Nawaz" 
+                             loading="eager" 
+                             width="300" 
+                             height="300"
+                             fetchpriority="high"
+                             srcset="images/zain.jpg 1x, images/zain.jpg 2x"
+                             sizes="(max-width: 768px) 280px, 380px">
+                    </div>
+                </aside>
+            </section>
 
-    </main>
-    <footer>
-        <div class="top-footer">
-            <p>Zain Nawaz</p>
-        </div>
-        <div class="middle-footer">
-            <ul class="footer-menu">
-                <li class="footer_menu_list">
-                    <a href="#home">Home</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#about">About</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#projects">Projects</a>
-                </li>
-                <li class="footer_menu_list">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="footer-social-icons">
-            <div class="icon">
-                <a href="https://www.instagram.com/zainnawaz58", target="_blank" >
-                    <i class="uil uil-instagram"></i>
-                </a>
-               
-                
-            </div>
-            <div class="icon">
-                
-                <a href="https://www.linkedin.com/in/zainnawaz755", target="_blank" >
-                <i class="uil uil-linkedin-alt"></i>
-            </div>
+            <section class="section" id="about" aria-labelledby="about-heading">
+                <div class="top-header">
+                    <h2 id="about-heading">About Me</h2>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <article class="about-info">
+                            <h3>My Introduction</h3>
+                            <div class="about-details">
+                                <div class="about-stats">
+                                    <p><strong>Education:</strong> FAST University</p>
+                                    <p><strong>Major:</strong> Computer Science</p>
+                                    <p><strong>Expected Graduation:</strong> 2026</p>
+                                </div>
+                                <p class="about-bio">
+                                    Hi! I'm a Computer Science student passionate about Machine Learning and Game Development. 
+                                    I focus on creating innovative solutions and learning cutting-edge technologies.
+                                </p>
+                                <div class="specializations" role="list" aria-label="Areas of specialization">
+                                    <span class="specialty-tag" role="listitem">Machine Learning</span>
+                                    <span class="specialty-tag" role="listitem">Game Development</span>
+                                    <span class="specialty-tag" role="listitem">Web Development</span>
+                                </div>
+                            </div>
+                            <div class="about-btn">
+                                <a href="https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   aria-label="Download CV (opens in new tab)">
+                                    <button class="btn" type="button">
+                                        <span>Download CV</span>
+                                        <i class="uil uil-download-alt" aria-hidden="true"></i>
+                                    </button>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <aside class="skills-section">
+                            <article class="skills-box">
+                                <div class="skills-header">
+                                    <h3>Frontend Skills</h3>
+                                </div>
+                                <div class="skills-list" role="list" aria-label="Frontend skills with proficiency levels">
+                                    <div class="skill-item" role="listitem">
+                                        <span>HTML</span>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML proficiency: 90%">
+                                            <div class="progress" style="width: 90%"></div>
+                                        </div>
+                                        <span class="skill-percentage" aria-hidden="true">90%</span>
+                                    </div>
+                                    <div class="skill-item" role="listitem">
+                                        <span>CSS</span>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="CSS proficiency: 85%">
+                                            <div class="progress" style="width: 85%"></div>
+                                        </div>
+                                        <span class="skill-percentage" aria-hidden="true">85%</span>
+                                    </div>
+                                    <div class="skill-item" role="listitem">
+                                        <span>JavaScript</span>
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency: 80%">
+                                            <div class="progress" style="width: 80%"></div>
+                                        </div>
+                                        <span class="skill-percentage" aria-hidden="true">80%</span>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="skills-box">
+                                <div class="skills-header">
+                                    <h3>Backend Skills</h3>
+                                </div>
+                                <div class="skills-list" role="list" aria-label="Backend programming languages">
+                                    <span class="skill-tag" role="listitem">JAVA</span>
+                                    <span class="skill-tag" role="listitem">Python</span>
+                                    <span class="skill-tag" role="listitem">C++</span>
+                                </div>
+                            </article>
+                        </aside>
+                    </div>
+                </div>
+            </section>
 
-            <div class="icon">
-                <a href="https://www.facebook.com/share/9883kVfxDtS2og3b/?mibextid=qi2Omg", target="_blank">
-                    <i class="uil uil-facebook-f"></i>
-                </a>
-            </div>
-            
-            <div class="icon">
-                <a href="https://github.com/zainnawaz22" target="_blank">
-                    <i class="uil uil-github-alt"></i>
-                </a>
-            </div>
-        </div>
-        <div class="bottom-footer">
-            <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Zain Nawaz</a> - All rights reserved</p>
-        </div>
-    </footer>
+            <section class="section" id="projects" aria-labelledby="projects-heading">
+                <div class="top-header">
+                    <h2 id="projects-heading">My Projects</h2>
+                    <p>Discover my latest work and contributions</p>
+                </div>
+                <div class="project-filter" role="tablist" aria-label="Filter projects by category">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" aria-controls="project-container">All</button>
+                    <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" aria-controls="project-container">Web Development</button>
+                    <button class="filter-btn" data-filter="ml" role="tab" aria-selected="false" aria-controls="project-container">Machine Learning</button>
+                    <button class="filter-btn" data-filter="game" role="tab" aria-selected="false" aria-controls="project-container">Game Development</button>
+                </div>
+                <div class="project-container" id="project-container" role="tabpanel" aria-labelledby="projects-heading">
+                    <div class="loading-projects" aria-live="polite" aria-label="Loading projects">
+                        <div class="loading-spinner"></div>
+                        <p>Loading projects from GitHub...</p>
+                    </div>
+                </div>
+            </section>
 
+            <section class="section" id="contact" aria-labelledby="contact-heading">
+                <div class="top-header">
+                    <h2 id="contact-heading">Get in Touch</h2>
+                    <p>Do you have a project or opportunity? Let's connect!</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <article class="contact-info">
+                            <h3>Find Me <i class="uil uil-corner-right-down" aria-hidden="true"></i></h3>
+                            <div class="contact-item">
+                                <i class="uil uil-envelope" aria-hidden="true"></i>
+                                <span>Email: <a href="mailto:Zainnawaz755@gmail.com">Zainnawaz755@gmail.com</a></span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="uil uil-phone" aria-hidden="true"></i>
+                                <span>Phone: <a href="tel:+923484249809">+92 348 4249809</a></span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="uil uil-map-marker" aria-hidden="true"></i>
+                                <span>Location: Pakistan</span>
+                            </div>
+                            <div class="contact-availability">
+                                <div class="availability-indicator">
+                                    <span class="status-dot" aria-hidden="true"></span>
+                                    <span>Available for new opportunities</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col">
+                        <form class="form-control" id="contactForm" novalidate>
+                            <div class="form-inputs">
+                                <div class="input-group">
+                                    <label for="name" class="sr-only">Your Name</label>
+                                    <input type="text" 
+                                           id="name" 
+                                           name="name"
+                                           class="input-field" 
+                                           placeholder="Your Name"
+                                           required
+                                           aria-required="true"
+                                           aria-describedby="name-error">
+                                    <span class="error-message" id="name-error" role="alert"></span>
+                                </div>
+                                <div class="input-group">
+                                    <label for="email" class="sr-only">Your Email</label>
+                                    <input type="email" 
+                                           id="email" 
+                                           name="email"
+                                           class="input-field" 
+                                           placeholder="Your Email"
+                                           required
+                                           aria-required="true"
+                                           aria-describedby="email-error">
+                                    <span class="error-message" id="email-error" role="alert"></span>
+                                </div>
+                            </div>
+                            <div class="text-area">
+                                <label for="message" class="sr-only">Your Message</label>
+                                <textarea id="message" 
+                                          name="message"
+                                          placeholder="Your Message"
+                                          required
+                                          aria-required="true"
+                                          aria-describedby="message-error"></textarea>
+                                <span class="error-message" id="message-error" role="alert"></span>
+                            </div>
+                            <div class="form-button">
+                                <button class="btn" type="submit" id="submitBtn">
+                                    <span>Send Message</span>
+                                    <i class="uil uil-message" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer role="contentinfo">
+            <div class="top-footer">
+                <p>Zain Nawaz</p>
+            </div>
+            <nav class="middle-footer" aria-label="Footer navigation">
+                <ul class="footer-menu">
+                    <li class="footer_menu_list">
+                        <a href="#home">Home</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li class="footer_menu_list">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="footer-social-icons" role="list" aria-label="Footer social media links">
+                <div class="icon" role="listitem">
+                    <a href="https://www.instagram.com/zainnawaz58" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Follow me on Instagram (opens in new tab)">
+                        <i class="uil uil-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="icon" role="listitem">
+                    <a href="https://www.linkedin.com/in/zainnawaz755" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Connect with me on LinkedIn (opens in new tab)">
+                        <i class="uil uil-linkedin-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="icon" role="listitem">
+                    <a href="https://www.facebook.com/share/9883kVfxDtS2og3b/?mibextid=qi2Omg" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="Follow me on Facebook (opens in new tab)">
+                        <i class="uil uil-facebook-f" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="icon" role="listitem">
+                    <a href="https://github.com/zainnawaz22" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       aria-label="View my GitHub profile (opens in new tab)">
+                        <i class="uil uil-github-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bottom-footer">
+                <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Zain Nawaz</a> - All rights reserved</p>
+            </div>
+        </footer>
     </div>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="./portfolio.js"></script>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js" defer></script>
+    <script src="https://unpkg.com/scrollreveal" defer></script>
+    <script src="./portfolio.js" defer></script>
 </body>
 </html>
