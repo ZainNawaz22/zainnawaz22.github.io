@@ -542,6 +542,8 @@ class PortfolioApp {
 
             const repos = await response.json();
             this.projects = this.processProjects(repos);
+            this.currentFilter = 'all'; // Ensure filter is set to show all projects
+            console.log('Loaded ' + this.projects.length + ' projects');
             this.renderProjects();
             
             // After projects are rendered, ensure section title is properly animated
@@ -557,11 +559,10 @@ class PortfolioApp {
 
     processProjects(repos) {
         return repos
-            .filter(repo => !repo.fork && repo.description)
             .map(repo => ({
                 id: repo.id,
                 name: repo.name,
-                description: repo.description,
+                description: repo.description || 'No description provided',
                 url: repo.html_url,
                 language: repo.language,
                 stars: repo.stargazers_count,
@@ -570,8 +571,7 @@ class PortfolioApp {
                 category: this.categorizeProject(repo),
                 tags: this.generateProjectTags(repo)
             }))
-            .sort((a, b) => b.updated - a.updated)
-            .slice(0, 12);
+            .sort((a, b) => b.updated - a.updated);
     }
 
     generateProjectTags(repo) {
@@ -1067,14 +1067,6 @@ class PortfolioApp {
     }
 
     applyMobileOptimizations() {
-        // Reduce scroll animations
-        document.querySelectorAll('.project-box').forEach((box, index) => {
-            if (index > 5) {
-                box.style.opacity = 1;
-                box.style.transform = 'none';
-            }
-        });
-        
         // Use passive event listeners for better scrolling
         this.addPassiveEventListeners();
         
