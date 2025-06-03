@@ -2040,11 +2040,16 @@ footer::before {
     .contact-container {
         max-width: 100%;
         flex-direction: column !important;
+        gap: var(--spacing-4xl);
     }
     
     .contact-card {
         width: 100% !important;
-        margin-bottom: var(--spacing-lg);
+        margin-bottom: var(--spacing-3xl);
+    }
+    
+    .contact-card:first-child {
+        margin-bottom: var(--spacing-4xl);
     }
     
     .form-inputs {
