@@ -1057,7 +1057,7 @@ nav.scrolled {
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        left: -100%;
         width: 80%;
         max-width: 300px;
         height: 100vh;
@@ -1066,13 +1066,13 @@ nav.scrolled {
         justify-content: center;
         align-items: center;
         transition: 0.3s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
         z-index: 120;
         padding: 5rem 0;
     }
     
     .nav-menu.responsive {
-        right: 0;
+        left: 0;
     }
     
     .nav_menu_list {
