@@ -1729,6 +1729,7 @@ footer::before {
     transition: var(--transition-base);
     width: 100%;
     max-width: 350px;
+    position: relative;
 }
 
 .contact-item:hover {
@@ -1748,6 +1749,8 @@ footer::before {
     background: rgba(59, 130, 246, 0.1);
     border-radius: var(--border-radius-sm);
     transition: var(--transition-base);
+    min-width: 40px;
+    text-align: center;
 }
 
 .contact-item:hover i {
