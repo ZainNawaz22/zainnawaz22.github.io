@@ -1613,13 +1613,25 @@ footer::before {
     margin: 0 auto;
 }
 
-#contact .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+/* New contact container styles for vertical card layout */
+.contact-container {
+    display: flex;
+    flex-direction: row;
     gap: var(--spacing-3xl);
-    align-items: start;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
+}
+
+.contact-card {
+    width: 50%;
+    transition: var(--transition-base);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
 }
 
 .contact-info {
@@ -1689,6 +1701,7 @@ footer::before {
     padding: var(--spacing-sm) 0;
     border-radius: var(--border-radius-md);
     transition: var(--transition-base);
+    width: 100%;
 }
 
 .contact-item:hover {
@@ -1751,6 +1764,7 @@ footer::before {
     border: 1px solid rgba(16, 185, 129, 0.2);
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .contact-availability::before {
@@ -2023,30 +2037,58 @@ footer::before {
 
 /* Contact section responsive design */
 @media (max-width: 768px) {
+    .contact-container {
+        max-width: 100%;
+        flex-direction: column;
+    }
+    
+    .contact-card {
+        width: 100%;
+    }
+    
     .form-inputs {
         flex-direction: column;
-        gap: var(--spacing-md);
     }
     
-    .contact-info,
-    .form-control {
-        padding: var(--spacing-lg);
+    .input-field {
+        width: 100%;
     }
     
-    .text-area textarea {
-        min-height: 120px;
+    .contact-info h3,
+    .contact-info .contact-item,
+    .contact-availability {
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-item i {
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .form-button {
+        display: flex;
+        justify-content: center;
     }
 }
 
+/* Mobile-specific adjustments */
 @media (max-width: 480px) {
-    .contact-info,
-    .form-control {
-        padding: var(--spacing-md);
+    .contact-info {
+        padding: var(--spacing-xl);
     }
     
-    .form-button .btn {
-        width: 100%;
-        justify-content: center;
+    .form-control {
+        padding: var(--spacing-xl);
+    }
+    
+    .contact-item span {
+        font-size: var(--font-size-sm);
     }
 }
 
