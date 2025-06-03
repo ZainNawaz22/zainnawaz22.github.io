@@ -124,7 +124,6 @@ class PortfolioApp {
         this.setupAnimations();
         this.setupTypingEffect();
         this.fetchProjects();
-        this.setupFormHandling();
         
         // Only setup cursor follower on non-mobile devices
         if (!this.isMobileDevice) {
@@ -151,7 +150,6 @@ class PortfolioApp {
             nav: document.getElementById('header'),
             navMenuBtn: document.getElementById('navMenuBtn'),
             navMenu: document.getElementById('myNavMenu'),
-            contactForm: document.getElementById('contactForm'),
             projectContainer: document.getElementById('project-container'),
             filterBtns: document.querySelectorAll('.filter-btn'),
             navLinks: document.querySelectorAll('.nav-link'),
@@ -763,143 +761,42 @@ class PortfolioApp {
     }
 
     setupFormHandling() {
-        if (!this.elements.contactForm) return;
-
-        this.elements.contactForm.addEventListener('submit', this.handleFormSubmit.bind(this));
-        
-        const inputs = this.elements.contactForm.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('blur', this.validateField.bind(this));
-            input.addEventListener('input', this.clearFieldError.bind(this));
-        });
+        // Form handling removed
     }
 
     async handleFormSubmit(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this.elements.contactForm);
-        const data = Object.fromEntries(formData);
-        
-        if (!this.validateForm(data)) {
-            this.showFormStatus('Please fix the errors below.', 'error');
-            return;
-        }
-
-        const submitBtn = this.elements.contactForm.querySelector('#submitBtn');
-        const originalText = submitBtn.innerHTML;
-        
-        submitBtn.innerHTML = '<span>Sending...</span><i class="uil uil-spinner" aria-hidden="true"></i>';
-        submitBtn.disabled = true;
-
-        try {
-            await this.simulateFormSubmission(data);
-            this.showFormStatus('Message sent successfully! I\'ll get back to you soon.', 'success');
-            this.elements.contactForm.reset();
-        } catch (error) {
-            console.error('Form submission error:', error);
-            this.showFormStatus('Sorry, there was an error sending your message. Please try again.', 'error');
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
+        // Form submission removed
     }
 
     validateForm(data) {
-        let isValid = true;
-        
-        if (!data.name || data.name.trim().length < 2) {
-            this.showFieldError('name', 'Name must be at least 2 characters long.');
-            isValid = false;
-        }
-        
-        if (!data.email || !this.isValidEmail(data.email)) {
-            this.showFieldError('email', 'Please enter a valid email address.');
-            isValid = false;
-        }
-        
-        if (!data.message || data.message.trim().length < 10) {
-            this.showFieldError('message', 'Message must be at least 10 characters long.');
-            isValid = false;
-        }
-        
-        return isValid;
+        // Form validation removed
+        return true;
     }
 
     validateField(e) {
-        const field = e.target;
-        const value = field.value.trim();
-        
-        switch (field.name) {
-            case 'name':
-                if (value.length > 0 && value.length < 2) {
-                    this.showFieldError('name', 'Name must be at least 2 characters long.');
-                } else {
-                    this.clearFieldError(e);
-                }
-                break;
-            case 'email':
-                if (value.length > 0 && !this.isValidEmail(value)) {
-                    this.showFieldError('email', 'Please enter a valid email address.');
-                } else {
-                    this.clearFieldError(e);
-                }
-                break;
-            case 'message':
-                if (value.length > 0 && value.length < 10) {
-                    this.showFieldError('message', 'Message must be at least 10 characters long.');
-                } else {
-                    this.clearFieldError(e);
-                }
-                break;
-        }
+        // Field validation removed
     }
 
     showFieldError(fieldName, message) {
-        const field = this.elements.contactForm.querySelector(`[name="${fieldName}"]`);
-        const errorElement = this.elements.contactForm.querySelector(`#${fieldName}-error`);
-        
-        if (field && errorElement) {
-            field.classList.add('error');
-            errorElement.textContent = message;
-            field.setAttribute('aria-invalid', 'true');
-        }
+        // Error display removed
     }
 
     clearFieldError(e) {
-        const field = e.target;
-        const errorElement = this.elements.contactForm.querySelector(`#${field.name}-error`);
-        
-        if (field && errorElement) {
-            field.classList.remove('error');
-            errorElement.textContent = '';
-            field.setAttribute('aria-invalid', 'false');
-        }
+        // Error clearing removed
     }
 
     showFormStatus(message, type) {
-        const statusElement = this.elements.contactForm.querySelector('#formStatus');
-        if (statusElement) {
-            statusElement.textContent = message;
-            statusElement.className = `form-status visible ${type}`;
-            
-            setTimeout(() => {
-                statusElement.classList.remove('visible');
-            }, 5000);
-        }
+        // Status display removed
     }
 
     isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+        // Email validation removed
+        return true;
     }
 
     async simulateFormSubmission(data) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Form submitted:', data);
-                resolve();
-            }, 2000);
-        });
+        // Form submission simulation removed
+        return true;
     }
 
     setupAnimations() {
