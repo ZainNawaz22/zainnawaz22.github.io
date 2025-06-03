@@ -2036,14 +2036,15 @@ footer::before {
 }
 
 /* Contact section responsive design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .contact-container {
         max-width: 100%;
-        flex-direction: column;
+        flex-direction: column !important;
     }
     
     .contact-card {
-        width: 100%;
+        width: 100% !important;
+        margin-bottom: var(--spacing-lg);
     }
     
     .form-inputs {
@@ -2077,18 +2078,10 @@ footer::before {
     }
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 480px) {
-    .contact-info {
-        padding: var(--spacing-xl);
-    }
-    
-    .form-control {
-        padding: var(--spacing-xl);
-    }
-    
-    .contact-item span {
-        font-size: var(--font-size-sm);
+/* Additional rules for smaller phones */
+@media (max-width: 600px) {
+    .contact-container {
+        gap: var(--spacing-xl);
     }
 }
 
