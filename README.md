@@ -6,9 +6,9 @@ A modern, responsive portfolio website showcasing Machine Learning and Game Deve
 
 ### Modern Architecture
 - **Semantic HTML5** with proper document structure
-- **CSS Custom Properties** for consistent theming
+- **Modular CSS** split by tokens, layout, sections, and responsive rules
 - **CSS Grid & Flexbox** for responsive layouts
-- **ES6+ JavaScript** with class-based architecture
+- **ES modules** split by navigation, effects, animations, and projects
 - **Progressive Web App (PWA)** capabilities
 
 ### Performance Optimizations
@@ -31,12 +31,10 @@ A modern, responsive portfolio website showcasing Machine Learning and Game Deve
 ### Interactive Features
 - **Smooth scrolling** navigation
 - **Dynamic project filtering** from GitHub API
-- **Theme switcher** (dark/light mode)
-- **Form validation** with real-time feedback
 - **Scroll progress indicator**
 - **Animated skill bars**
 - **Cursor follower** (desktop)
-- **Loading animations**
+- **Particle background** and loading animations
 
 ## 🛠 Technology Stack
 
@@ -87,7 +85,30 @@ A modern, responsive portfolio website showcasing Machine Learning and Game Deve
 ### Caching Strategy
 - Service Worker implementation ready
 - Manifest.json for PWA installation
-- Local storage for theme preferences
+
+## Project Structure
+
+```text
+styles/
+  index.css
+  tokens.css
+  base.css
+  layout.css
+  hero.css
+  about.css
+  projects.css
+  contact.css
+  footer.css
+  effects.css
+  responsive.css
+scripts/
+  main.js
+  config/
+  core/
+  effects/
+  projects/
+  ui/
+```
 
 ## 🎨 Design System
 
@@ -161,29 +182,14 @@ async fetchProjects() {
 }
 ```
 
-### Theme Management
+### Modular Bootstrap
 ```javascript
-// Persistent theme switching
-toggleTheme() {
-    this.theme = this.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', this.theme);
-    localStorage.setItem('theme', this.theme);
-}
-```
+import { PortfolioApp } from "./scripts/core/portfolio-app.js";
 
-### Form Validation
-```javascript
-// Real-time form validation
-validateForm(data) {
-    let isValid = true;
-    
-    if (!data.name || data.name.trim().length < 2) {
-        this.showFieldError('name', 'Name must be at least 2 characters long.');
-        isValid = false;
-    }
-    
-    return isValid;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const app = new PortfolioApp();
+    app.init();
+});
 ```
 
 ## 🚀 Deployment

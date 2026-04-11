@@ -30,7 +30,7 @@
     <link rel="preload" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"></noscript>
     
-    <link rel="stylesheet" href="./portfolio.css">
+    <link rel="stylesheet" href="./styles/index.css">
     <link rel="icon" type="image/png" href="download.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>Zain Nawaz - Computer Science Student & Developer Portfolio</title>
@@ -71,6 +71,7 @@
 </head>
 
 <body>
+    <!-- Global Effects -->
     <div class="loading-screen" id="loadingScreen" aria-hidden="true">
         <div class="loading-animation">
             <div class="loading-dots">
@@ -87,6 +88,7 @@
     <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
     
     <div class="container">
+        <!-- Header -->
         <header>
             <nav id="header" role="navigation" aria-label="Main navigation">
                 <div class="nav-logo">
@@ -127,11 +129,10 @@
                     <a href="https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view" 
                        target="_blank" 
                        rel="noopener noreferrer"
-                       aria-label="Download CV (opens in new tab)">
-                        <button class="btn" type="button">
-                            <span>Download CV</span> 
-                            <i class="uil uil-file-alt" aria-hidden="true"></i>
-                        </button>
+                       aria-label="Download CV (opens in new tab)"
+                       class="btn">
+                        <span>Download CV</span> 
+                        <i class="uil uil-file-alt" aria-hidden="true"></i>
                     </a>
                 </div>
                 
@@ -147,7 +148,9 @@
             </nav>
         </header>
 
+        <!-- Main Content -->
         <main class="wrapper">
+            <!-- Hero -->
             <section class="featured-box" id="home" aria-labelledby="home-heading">
                 <div class="featured-text">
                     <div class="featured-name">
@@ -162,11 +165,10 @@
                         <a href="https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view" 
                            target="_blank" 
                            rel="noopener noreferrer"
-                           aria-label="Download CV (opens in new tab)">
-                            <button class="btn" type="button">
-                                <span>Download CV</span> 
-                                <i class="uil uil-file-alt" aria-hidden="true"></i>
-                            </button>
+                           aria-label="Download CV (opens in new tab)"
+                           class="btn">
+                            <span>Download CV</span> 
+                            <i class="uil uil-file-alt" aria-hidden="true"></i>
                         </a>
                     </div>
                     <div class="social_icons" role="list" aria-label="Social media links">
@@ -218,6 +220,7 @@
                 </aside>
             </section>
 
+            <!-- About -->
             <section class="section" id="about" aria-labelledby="about-heading">
                 <div class="top-header">
                     <h2 id="about-heading">About Me</h2>
@@ -246,11 +249,10 @@
                                 <a href="https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view" 
                                    target="_blank" 
                                    rel="noopener noreferrer"
-                                   aria-label="Download CV (opens in new tab)">
-                                    <button class="btn" type="button">
-                                        <span>Download CV</span>
-                                        <i class="uil uil-download-alt" aria-hidden="true"></i>
-                                    </button>
+                                   aria-label="Download CV (opens in new tab)"
+                                   class="btn">
+                                    <span>Download CV</span>
+                                    <i class="uil uil-download-alt" aria-hidden="true"></i>
                                 </a>
                             </div>
                         </article>
@@ -300,6 +302,7 @@
                 </div>
             </section>
 
+            <!-- Projects -->
             <section class="section" id="projects" aria-labelledby="projects-heading">
                 <div class="top-header">
                     <h2 id="projects-heading">My Projects</h2>
@@ -319,6 +322,7 @@
                 </div>
             </section>
 
+            <!-- Contact -->
             <section class="section" id="contact" aria-labelledby="contact-heading">
                 <div class="top-header">
                     <h2 id="contact-heading">Get in Touch</h2>
@@ -347,6 +351,7 @@
             </section>
         </main>
 
+        <!-- Footer -->
         <footer role="contentinfo">
             <div class="top-footer">
                 <p>Zain Nawaz</p>
@@ -409,6 +414,6 @@
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js" defer></script>
     <script src="https://unpkg.com/scrollreveal" defer></script>
-    <script src="./portfolio.js" defer></script>
+    <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>
