@@ -1,127 +1,216 @@
-#header {
-    position: fixed;
-    inset: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: var(--nav-height);
-    padding-inline: 5vw;
-    z-index: var(--z-nav);
-    border-bottom: 1px solid transparent;
-    background: rgba(15, 23, 42, 0.58);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: background var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), height var(--transition-base);
-}
-
-#header.scrolled {
-    height: calc(var(--nav-height) - 8px);
-    background: var(--bg-glass);
-    border-color: var(--glass-border);
-    box-shadow: var(--shadow-md);
-}
-
-.nav-logo {
+.site-wrapper {
     position: relative;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    max-width: var(--max-width);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 clamp(1.5rem, 5vw, 6.25rem);
 }
 
-.nav-name {
-    margin: 0;
-    font-size: 1.8rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
+/* --- Left Rail (sticky sidebar) --- */
 
-.nav-logo span {
-    position: absolute;
-    top: -12px;
-    right: -18px;
-    color: var(--color-accent);
-    font-size: 2.8rem;
-    line-height: 1;
-}
-
-.nav-menu,
-.nav_menu_list {
+.rail {
+    position: sticky;
+    top: 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 48%;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 6rem 0 3rem;
+    padding-right: var(--spacing-lg);
+    flex-shrink: 0;
+    overflow-y: auto;
 }
 
-.nav_menu_list {
-    gap: 0.25rem;
+.rail-identity {
+    display: flex;
+    flex-direction: column;
+}
+
+.rail-name {
+    margin: 0;
+    font-size: var(--font-size-5xl);
+    font-weight: 700;
+    color: var(--text-bright);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.02em;
+}
+
+.rail-role {
+    margin: var(--spacing-sm) 0 0;
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    color: var(--text-heading);
+}
+
+.rail-tagline {
+    margin: var(--spacing-md) 0 0;
+    max-width: 300px;
+    font-size: var(--font-size-base);
+    color: var(--text-body);
+    line-height: var(--line-height-normal);
+}
+
+/* --- Rail Navigation --- */
+
+.rail-nav {
+    margin-top: var(--spacing-4xl);
+}
+
+.rail-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
     margin: 0;
     padding: 0;
-}
-
-.nav_list {
-    position: relative;
     list-style: none;
 }
 
-.nav-link {
+.rail-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-    border-radius: var(--border-radius-full);
-    color: var(--text-secondary);
-    font-weight: 500;
+    gap: var(--spacing-md);
+    padding: 0.375rem 0;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
 }
 
-.nav-link:hover {
-    color: var(--text-primary);
-    background: rgba(59, 130, 246, 0.1);
+.rail-nav-link:hover {
+    color: var(--text-bright);
 }
 
-.nav-link .circle {
-    width: 0;
-    height: 0;
+.rail-nav-indicator {
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--text-muted);
+    transition: width var(--transition-base), background var(--transition-fast);
 }
 
-.active-link {
-    color: var(--text-primary);
-    background: rgba(59, 130, 246, 0.14);
+.rail-nav-link:hover .rail-nav-indicator {
+    width: 64px;
+    background: var(--text-bright);
 }
 
-.active-link::after {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    width: 6px;
-    height: 6px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: var(--color-primary);
-    box-shadow: var(--shadow-glow);
+.rail-nav-link.active {
+    color: var(--text-bright);
 }
 
-.nav-button .btn {
-    padding-inline: 1.2rem;
-    min-height: 44px;
+.rail-nav-link.active .rail-nav-indicator {
+    width: 64px;
+    background: var(--text-bright);
 }
 
-.nav-menu-btn {
+/* --- Rail Footer (social + resume) --- */
+
+.rail-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.rail-social {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.rail-social-link {
+    color: var(--text-body);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.rail-social-link:hover {
+    color: var(--text-bright);
+    transform: translateY(-2px);
+}
+
+.rail-social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.rail-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color var(--transition-fast);
+}
+
+.rail-resume:hover {
+    color: var(--text-bright);
+}
+
+.rail-resume svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* --- Right Content Column --- */
+
+.content {
+    width: 52%;
+    padding: var(--spacing-section) 0;
+}
+
+.content-section {
+    margin-bottom: var(--spacing-section);
+    scroll-margin-top: var(--spacing-3xl);
+}
+
+.content-section:last-child {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.section-label {
     display: none;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-    z-index: calc(var(--z-nav) + 1);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-bright);
 }
 
-.hamburger-line {
-    display: block;
-    width: 24px;
-    height: 2px;
-    margin: 5px auto;
-    background: var(--text-primary);
-    transition: transform var(--transition-base), opacity var(--transition-base);
+/* --- Spotlight --- */
+
+.cursor-spotlight {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+        rgba(29, 78, 116, 0.15),
+        transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cursor-spotlight.visible {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor-spotlight {
+        display: none;
+    }
 }

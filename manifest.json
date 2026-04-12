@@ -60,10 +60,10 @@
       ]
     },
     {
-      "name": "Contact Me",
-      "short_name": "Contact",
-      "description": "Get in touch",
-      "url": "/#contact",
+      "name": "My Experience",
+      "short_name": "Experience",
+      "description": "See my background and recent work",
+      "url": "/#experience",
       "icons": [
         {
           "src": "./download.png",
