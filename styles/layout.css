@@ -197,9 +197,9 @@
     pointer-events: none;
     z-index: 1;
     background: radial-gradient(
-        600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
-        rgba(29, 78, 116, 0.15),
-        transparent 40%
+        900px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+        rgba(29, 78, 116, 0.25),
+        transparent 50%
     );
     opacity: 0;
     transition: opacity 0.3s ease;
