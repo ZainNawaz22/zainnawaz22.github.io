@@ -1,3 +1,67 @@
+# Zain Nawaz — Portfolio
+
+A minimal, dark-themed single-page portfolio built with vanilla HTML, CSS, and JavaScript. Inspired by the structure of Brittany Chiang's portfolio, with a sticky left-rail identity column and a scrolling content column for About, Experience, and Projects.
+
+## Structure
+
+```text
+index.html              Single-page shell with semantic sections and JSON-LD
+resume.html             Standalone resume page
+manifest.json           PWA manifest
+
+scripts/
+  main.js               Bootstraps PortfolioApp on DOMContentLoaded
+  core/
+    portfolio-app.js    Light coordinator (render + section tracking + spotlight)
+  data/
+    content.js          Curated profile, social links, experience, projects
+  effects/
+    spotlight.js        Subtle cursor-following radial gradient (desktop only)
+  ui/
+    section-tracker.js  IntersectionObserver-driven active nav state
+    content-renderer.js Renders social links, experience, and projects from data
+
+styles/
+  index.css             Imports the layered stylesheets below
+  tokens.css            Design tokens (color, spacing, type, motion)
+  base.css              Resets, typography, focus styles
+  layout.css            Page shell, rail, content column, spotlight
+  about.css             About section paragraphs
+  experience.css        Experience list and entry styles
+  projects.css          Project list and entry styles
+  footer.css            Footer styles
+  responsive.css        Tablet, mobile, reduced-motion overrides
+```
+
+## Editing content
+
+All curated content (social links, experience entries, featured projects) lives in [scripts/data/content.js](scripts/data/content.js). On load, the page hydrates the empty containers in `index.html` marked with `data-social-links`, `data-experience-list`, and `data-project-list`.
+
+About copy and the footer note stay in `index.html` because they are long-form prose.
+
+## Running locally
+
+It is a static site. Serve the folder with any static server, for example:
+
+```powershell
+python -m http.server 5500
+```
+
+Then open `http://localhost:5500`.
+
+## Design notes
+
+- One typeface (Inter), left-aligned typography, small uppercase section labels.
+- Restrained teal accent on a dark navy background.
+- Hover affordances are subtle background tints and 1px insets, no glow or large lifts.
+- Motion respects `prefers-reduced-motion`; the spotlight only enables on hover-capable, fine-pointer devices.
+
+## Accessibility
+
+- Semantic landmarks (`header`, `main`, `footer`) and `aria-labelledby` on each section.
+- Section nav reflects the active section via IntersectionObserver and `aria-current`.
+- Visible focus ring when navigating by keyboard.
+- All external links open in new tabs with `rel="noopener noreferrer"` and descriptive `aria-label`.
 # Zain Nawaz - Portfolio Website
 
 A modern, responsive portfolio website showcasing Machine Learning and Game Development projects with cutting-edge web technologies and performance optimizations.

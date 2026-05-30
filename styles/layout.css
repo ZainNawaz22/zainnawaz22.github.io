@@ -138,31 +138,6 @@
     fill: currentColor;
 }
 
-.rail-resume {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    color: var(--color-accent);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: color var(--transition-fast);
-}
-
-.rail-resume:hover {
-    color: var(--text-bright);
-}
-
-.rail-resume svg {
-    width: 14px;
-    height: 14px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
 /* --- Right Content Column --- */
 
 .content {

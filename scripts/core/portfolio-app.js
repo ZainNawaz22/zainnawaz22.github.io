@@ -1,5 +1,6 @@
 import { SectionTracker } from "../ui/section-tracker.js";
 import { Spotlight } from "../effects/spotlight.js";
+import { renderContent } from "../ui/content-renderer.js";
 
 export class PortfolioApp {
     constructor() {
@@ -8,6 +9,7 @@ export class PortfolioApp {
     }
 
     init() {
+        renderContent();
         this.sectionTracker = new SectionTracker();
         this.sectionTracker.init();
         this.setupSpotlight();
