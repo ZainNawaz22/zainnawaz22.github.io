@@ -1,20 +1,23 @@
 :root {
-    --color-accent: #5eead4;
-    --color-accent-muted: rgba(94, 234, 212, 0.1);
-    --color-accent-hover: rgba(94, 234, 212, 0.15);
+    --color-accent: #ff6a45;
+    --color-accent-bright: #ff8a6b;
+    --color-accent-muted: rgba(255, 106, 69, 0.1);
+    --color-accent-hover: rgba(255, 106, 69, 0.15);
 
-    --bg-primary: #0a192f;
-    --bg-card-hover: rgba(94, 234, 212, 0.03);
-    --bg-tag: rgba(94, 234, 212, 0.1);
+    --bg-primary: #0c0c0e;
+    --bg-card-hover: #141417;
+    --bg-tag: rgba(255, 106, 69, 0.12);
 
-    --text-heading: #ccd6f6;
-    --text-body: #8892b0;
-    --text-bright: #e6f1ff;
-    --text-muted: #495670;
+    --text-heading: #d4d4d8;
+    --text-body: #a1a1aa;
+    --text-bright: #f4f4f5;
+    --text-muted: #52525b;
 
-    --border-subtle: rgba(136, 146, 176, 0.12);
+    --border-subtle: rgba(244, 244, 245, 0.08);
 
     --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.8125rem;

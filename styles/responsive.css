@@ -64,7 +64,7 @@
         margin: 0 calc(-1 * clamp(1.25rem, 5vw, 2.5rem));
         padding-left: clamp(1.25rem, 5vw, 2.5rem);
         padding-right: clamp(1.25rem, 5vw, 2.5rem);
-        background: rgba(10, 25, 47, 0.85);
+        background: rgba(12, 12, 14, 0.85);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
     }

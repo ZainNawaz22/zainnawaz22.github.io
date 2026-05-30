@@ -21,8 +21,9 @@
 
 .experience-period {
     padding-top: 4px;
+    font-family: var(--font-mono);
     font-size: var(--font-size-xs);
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -79,9 +80,10 @@
     display: inline-flex;
     align-items: center;
     padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
+    border-radius: 6px;
     background: var(--bg-tag);
-    color: var(--color-accent);
+    color: var(--color-accent-bright);
+    font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     font-weight: 500;
     line-height: 1.5;

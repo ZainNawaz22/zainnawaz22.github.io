@@ -1,0 +1,6 @@
+# Visual brainstorming companion (Superpowers) — local only
+.superpowers/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

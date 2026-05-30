@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 *,
 *::before,
@@ -55,7 +55,7 @@ button {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     color: var(--text-heading);
-    font-family: var(--font-sans);
+    font-family: var(--font-display);
     font-weight: 700;
     line-height: var(--line-height-tight);
 }
@@ -65,7 +65,7 @@ p {
 }
 
 ::selection {
-    background: rgba(94, 234, 212, 0.25);
+    background: rgba(255, 106, 69, 0.25);
     color: var(--text-bright);
 }
 
