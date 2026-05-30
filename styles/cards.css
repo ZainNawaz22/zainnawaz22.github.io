@@ -1,0 +1,77 @@
+.experience-entry,
+.project-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-radius: 6px;
+    transition: background var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.experience-entry:hover,
+.project-entry:hover {
+    background: var(--bg-card-hover);
+    box-shadow: inset 0 0 0 1px var(--border-subtle);
+}
+
+.experience-body,
+.project-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-tags,
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.experience-tag,
+.project-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    background: var(--bg-tag);
+    color: var(--color-accent-bright);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.resume-link-wrapper,
+.github-link-wrapper {
+    margin-top: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+}
+
+.resume-link,
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-bright);
+    transition: color var(--transition-fast);
+}
+
+.resume-link:hover,
+.github-link:hover {
+    color: var(--color-accent);
+}
+
+.resume-link-arrow,
+.github-link-arrow {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.resume-link:hover .resume-link-arrow,
+.github-link:hover .github-link-arrow {
+    transform: translateX(4px);
+}
