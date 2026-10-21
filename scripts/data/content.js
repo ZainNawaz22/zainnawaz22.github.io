@@ -1,7 +1,7 @@
 export const profile = {
     name: "Zain Nawaz",
-    role: "Computer Science Student & Developer",
-    tagline: "I build things for the web and explore the frontiers of machine learning and game development.",
+    role: "Software Developer",
+    tagline: "I build web, mobile, and desktop applications, with projects in machine learning and C++ game development.",
     resumeUrl: "https://drive.google.com/file/d/1cbPciC7gAs0QS0VvSEv9EGwSyOhB7_Fr/view",
     githubUrl: "https://github.com/zainnawaz22"
 };
@@ -31,58 +31,148 @@ export const socialLinks = [
 
 export const experience = [
     {
-        period: "2022 - Present",
-        title: "Computer Science Student",
-        organization: "FAST NUCES",
-        organizationUrl: "https://www.nu.edu.pk/",
-        summary: "Pursuing a BS in Computer Science with focus areas in machine learning, game development, and full-stack web engineering. Building projects that bridge academic theory with real-world application.",
-        tags: ["Machine Learning", "Game Dev", "Web", "Python", "C++"]
+        "period": "2025",
+        "title": "Machine Learning & Web Development",
+        "organization": "Personal Projects",
+        "organizationUrl": "https://github.com/ZainNawaz22/Stock",
+        "summary": "Built PSX AI Advisor for stock analysis and Random Forest predictions, alongside a React and TypeScript frontend for market data visualization.",
+        "tags": [
+            "Python",
+            "FastAPI",
+            "scikit-learn",
+            "React",
+            "TypeScript"
+        ]
     },
     {
-        period: "2024",
-        title: "Full Stack Developer",
-        organization: "Personal Projects",
-        organizationUrl: "https://github.com/zainnawaz22",
-        summary: "Designed and shipped multiple end-to-end web applications and ML pipelines, from data collection and model training to frontend deployment and user-facing interfaces.",
-        tags: ["JavaScript", "Python", "Flask", "HTML/CSS"]
+        "period": "2025",
+        "title": "Mobile App Development",
+        "organization": "Instant Grader Pro",
+        "organizationUrl": "https://github.com/ZainNawaz22/instant_grader_pro",
+        "summary": "Built a Flutter application for scanning and grading multiple-choice answer sheets, with camera capture, image preprocessing, and optical mark recognition.",
+        "tags": [
+            "Flutter",
+            "Dart",
+            "OpenCV",
+            "Computer Vision"
+        ]
     },
     {
-        period: "2023 - 2024",
-        title: "Game Developer",
-        organization: "University & Independent",
-        organizationUrl: "https://github.com/zainnawaz22",
-        summary: "Developed game prototypes and interactive simulations using Unity and C#, exploring physics systems, AI behaviors, and procedural generation techniques.",
-        tags: ["Unity", "C#", "Game AI", "Physics"]
+        "period": "2024",
+        "title": "Desktop Application Development",
+        "organization": "Maintendance",
+        "organizationUrl": "https://github.com/ZainNawaz22/Maintendance",
+        "summary": "Developed a C++ and Qt attendance and leave management application with role-specific interfaces, approval workflows, and file-based record storage.",
+        "tags": [
+            "C++",
+            "Qt",
+            "Desktop Apps"
+        ]
+    },
+    {
+        "period": "2023 - 2024",
+        "title": "Game Development",
+        "organization": "Personal Projects",
+        "organizationUrl": "https://github.com/ZainNawaz22/Opengl_FPS-game",
+        "summary": "Built an OpenGL first-person game with Assimp model loading and a C++ Space Invaders game, working with rendering, player controls, and game logic.",
+        "tags": [
+            "C++",
+            "OpenGL",
+            "Assimp",
+            "Game Development"
+        ]
     }
 ];
 
 export const featuredProjects = [
     {
-        name: "ML Image Classifier",
-        url: "https://github.com/zainnawaz22",
-        description: "A convolutional neural network pipeline for image classification, built with TensorFlow and deployed with a Flask API. Trained on custom datasets with data augmentation and transfer learning.",
-        tags: ["Python", "TensorFlow", "Flask", "ML"],
-        thumbnail: "M"
+        "name": "PSX AI Advisor",
+        "url": "https://github.com/ZainNawaz22/Stock",
+        "description": "A Python stock analysis API for the Pakistan Stock Exchange, combining historical market data, technical indicators, and Random Forest price-movement predictions. Built with FastAPI and caching for API responses.",
+        "tags": [
+            "Python",
+            "FastAPI",
+            "scikit-learn",
+            "Pandas"
+        ],
+        "thumbnail": "PSX"
     },
     {
-        name: "Portfolio Website",
-        url: "https://github.com/zainnawaz22/zainnawaz22.github.io",
-        description: "This portfolio site itself - a minimal, dark-themed single-page application built with vanilla HTML, CSS, and JavaScript. Curated content, section-aware navigation, and a subtle spotlight effect.",
-        tags: ["HTML", "CSS", "JavaScript"],
-        thumbnail: "P"
+        "name": "Stocks Frontend",
+        "url": "https://github.com/ZainNawaz22/stocks-frontend",
+        "description": "A React and TypeScript frontend for stock market data visualization and analytics, with Material UI components, a typed Axios API client, and reusable hooks.",
+        "tags": [
+            "React",
+            "TypeScript",
+            "Material UI",
+            "Vite"
+        ],
+        "thumbnail": "WEB"
     },
     {
-        name: "2D Platformer Game",
-        url: "https://github.com/zainnawaz22",
-        description: "A physics-based 2D platformer built in Unity with procedurally generated levels, enemy AI state machines, and a custom animation system.",
-        tags: ["Unity", "C#", "Game Dev", "AI"],
-        thumbnail: "2"
+        "name": "Instant Grader Pro",
+        "url": "https://github.com/ZainNawaz22/instant_grader_pro",
+        "description": "A Flutter application for scanning and grading multiple-choice answer sheets. Uses camera capture, image preprocessing, perspective correction, and optical mark recognition to read filled bubbles.",
+        "tags": [
+            "Flutter",
+            "Dart",
+            "OpenCV",
+            "OMR"
+        ],
+        "thumbnail": "OMR"
     },
     {
-        name: "Data Analysis Dashboard",
-        url: "https://github.com/zainnawaz22",
-        description: "An interactive data visualization dashboard using Python and Plotly, processing and displaying insights from large datasets with filterable charts and summary statistics.",
-        tags: ["Python", "Plotly", "Data Analysis"],
-        thumbnail: "D"
+        "name": "Maintendance",
+        "url": "https://github.com/ZainNawaz22/Maintendance",
+        "description": "A desktop attendance and leave management application with separate workflows for employees, guards, supervisors, and directors. Includes attendance records, leave requests, approvals, and balance tracking.",
+        "tags": [
+            "C++",
+            "Qt",
+            "Desktop Application"
+        ],
+        "thumbnail": "QT"
+    },
+    {
+        "name": "OpenGL FPS Game",
+        "url": "https://github.com/ZainNawaz22/Opengl_FPS-game",
+        "description": "A first-person game built with C++ and OpenGL, using Assimp to load 3D models.",
+        "tags": [
+            "C++",
+            "OpenGL",
+            "Assimp",
+            "3D Graphics"
+        ],
+        "thumbnail": "3D"
+    },
+    {
+        "name": "Space Invaders",
+        "url": "https://github.com/ZainNawaz22/SpaceInvaders",
+        "description": "A C++ Space Invaders game with player controls, enemies, bullets, levels, and score tracking.",
+        "tags": [
+            "C++",
+            "Game Development"
+        ],
+        "thumbnail": "2D"
+    },
+    {
+        "name": "Portfolio Website",
+        "url": "https://github.com/ZainNawaz22/zainnawaz22.github.io",
+        "description": "This portfolio, built with plain HTML, CSS, and JavaScript. Features curated project content, section-aware navigation, and a responsive layout.",
+        "tags": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+        ],
+        "thumbnail": "ZN"
+    },
+    {
+        "name": "First Personal Website",
+        "url": "https://github.com/ZainNawaz22/zainnawaz.github.io",
+        "description": "My first HTML website, published in 2022. An early personal site with a resume page and custom styles.",
+        "tags": [
+            "HTML",
+            "CSS"
+        ],
+        "thumbnail": "HTML"
     }
 ];
